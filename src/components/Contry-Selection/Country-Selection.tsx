@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
+import styles from './Country-Selection.module.css';
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type 
@@ -64,9 +65,8 @@ const CountrySelection = () => {
   }, []);
 
   return (
-    <div className="mx-auto">
-      <form action="" className="confirm flex gap-4 justify-center items-center p-4">
-        <div className="selection w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
+      <form action="" className="confirm  flex flex-col md:flex-row gap-4 justify-center items-center">
+        <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
           <img className={`flag w-11 h-11 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/nationality.svg" alt="Nationality Flag" />
           <select id="countrySelect1" className="select cursor-text appearance-none flex-1 outline-none bg-transparent">
             <option value="" disabled selected>
@@ -74,19 +74,24 @@ const CountrySelection = () => {
             </option>
           </select>
         </div>
-        <div className="selection w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
-          <img className={`flag w-10 h-10 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/country.svg" alt="Country Flag" />
+        <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
+          <img className={`flag w-11 h-11 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/country.svg" alt="Country Flag" />
           <select id="countrySelect2" className="select cursor-text appearance-none flex-1 outline-none bg-transparent">
             <option value="" disabled selected>
               I live in
             </option>
           </select>
         </div>
-        <button type="submit" className="bg-white p-4 py-[18.4px] shadow-md text-red-600">
-          <IoSearchSharp size={35} />
-        </button>
+        <div className='flex justify-center'>
+          <button
+            type="submit"
+            className={`bg-white shadow-md text-red-600 ${styles.button}`}
+
+          >
+            <IoSearchSharp size={35} />
+          </button>
+        </div>
       </form>
-    </div>
   );
 };
 
