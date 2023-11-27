@@ -6,6 +6,14 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  screens: {
+    xs: "200px",
+    sm: "575px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
+    "2xl": "1400px",
+  },
   theme: {
     extend: {
       backgroundImage: {
