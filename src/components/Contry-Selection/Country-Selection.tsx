@@ -65,10 +65,10 @@ const CountrySelection = () => {
   }, []);
 
   return (
-      <form action="" className="confirm  flex flex-col md:flex-row gap-4 justify-center items-center">
+      <form action="" className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center items-center">
         <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
           <img className={`flag w-11 h-11 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/nationality.svg" alt="Nationality Flag" />
-          <select id="countrySelect1" className="select cursor-text appearance-none flex-1 outline-none bg-transparent">
+          <select id="countrySelect1" className="select cursor-text flex appearance-none w-14 flex-1 outline-none bg-transparent">
             <option value="" disabled selected>
               I am from
             </option>
@@ -76,7 +76,7 @@ const CountrySelection = () => {
         </div>
         <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
           <img className={`flag w-11 h-11 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/country.svg" alt="Country Flag" />
-          <select id="countrySelect2" className="select cursor-text appearance-none flex-1 outline-none bg-transparent">
+          <select id="countrySelect2" className="select cursor-text flex appearance-none outline-none w-14 flex-1">
             <option value="" disabled selected>
               I live in
             </option>

@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
   return (
-    <div>fsd</div>
+    <div>fsd  </div>
   );
 };
 

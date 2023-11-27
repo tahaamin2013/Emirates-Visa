@@ -53,8 +53,8 @@ const HeroSection = () => {
       </div>
       
     </div>
-    <div className=' relative top-[-55px]'>
-    <CountrySelection />
+    <div className='relative top-[-60px] sm:top-[-45px] md:top-[-62px]'>
+        <CountrySelection />
     </div>
     </>
   );
