@@ -50,7 +50,7 @@ const HeroSection = () => {
           </div>
           
         </div>
-        <button className="lg:hidden ml-5 heroSection-button bg-[#e90000] text-white border-white border-[2px] mt-[66px] py-4 rounded-[6px] px-[38px]">
+        <button className="lg:hidden ml-5 heroSection-button bg-[#e90000] text-white border-white border-[2px] mt-[69px] py-4 rounded-[6px] px-[38px]">
                 EMERGENCY VISA IN 12 HOURS
               </button> 
       </div>
