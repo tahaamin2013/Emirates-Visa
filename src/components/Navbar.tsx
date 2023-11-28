@@ -66,7 +66,7 @@ const Navbar = () => {
             >
               <a
                 href={link.link}
-                className=" text-blac duration-200"
+                className="duration-200"
               >
                 {link.name}
               </a>
