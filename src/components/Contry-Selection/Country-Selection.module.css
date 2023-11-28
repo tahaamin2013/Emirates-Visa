@@ -2,6 +2,7 @@
     padding: 18px;
     padding-left: 18px;
     padding-right: 18px;
+    background-color: white;
 }
 
 @media (max-width: 600px) {
