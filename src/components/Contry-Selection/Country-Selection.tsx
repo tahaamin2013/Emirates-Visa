@@ -141,6 +141,7 @@ const CountrySelection = () => {
               setCountry1(e.target.value);
             }}
           >
+            {/* field2 */}
             <option value="" disabled selected>
               I am from
             </option>
@@ -162,6 +163,7 @@ const CountrySelection = () => {
               setCountry2(e.target.value);
             }}
           >
+            {/* field1 */}
             <option value="" disabled selected>
               I live in
             </option>
@@ -175,7 +177,7 @@ const CountrySelection = () => {
             <button /* Search Button 182 */
               type="button"
               disabled={isButtonDisabled} // Add this line
-              className={`bg-white shadow-md text-red-600 ${styles.button}`}
+              className={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
               onClick={SearchtheVisa}
             >
               <IoSearchSharp size={40} />
@@ -183,7 +185,7 @@ const CountrySelection = () => {
           ) : (
             <button /* Search Button 345 */
               type="button"
-              className={`bg-white shadow-md text-red-600 ${styles.button}`}
+              className={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
               onClick={ResettheVisa}
 
             >
@@ -192,7 +194,7 @@ const CountrySelection = () => {
           )}
         </div>
       </form>
-      <div>{showHeading && <div className="mt-10 flex justify-center"><VisaType /></div>}</div>
+      <div>{showHeading && <div className="mt-10"><VisaType /></div>}</div>
     </div>
   );
 };
