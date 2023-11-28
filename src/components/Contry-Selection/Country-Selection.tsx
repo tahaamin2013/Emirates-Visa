@@ -187,7 +187,6 @@ const CountrySelection = () => {
 
             >
               <IoClose size={35} />
-
             </button>
           )}
         </div>
