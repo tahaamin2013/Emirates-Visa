@@ -44,12 +44,15 @@ const HeroSection = () => {
                 <p className={`hidden ${styles.paragraphs}`}>100% guaranteed approval*</p>
                 <p className={`hidden ${styles.paragraphs}`}>Get Emirates Visa approval in 12 hours with Express Service</p>
               </div>
-               <button className="lg:hidden ml-2 heroSection-button bg-[#e90000] border-white border-[2px] mt-7 py-4 rounded-[6px] px-[38px]">
+               
+            </div>
+
+          </div>
+          
+        </div>
+        <button className="lg:hidden ml-5 heroSection-button bg-[#e90000] text-white border-white border-[2px] mt-[66px] py-4 rounded-[6px] px-[38px]">
                 EMERGENCY VISA IN 12 HOURS
               </button> 
-            </div>
-          </div>
-        </div>
       </div>
       
     </div>
