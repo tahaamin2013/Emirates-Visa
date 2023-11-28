@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
 import { IoClose, IoSearchSharp } from "react-icons/io5";
 import styles from "./Country-Selection.module.css";
@@ -14,6 +16,7 @@ const CountrySelection = () => {
 
   const router = useRouter()
   const SearchtheVisa = () => {
+
     setShowHeading(true); // Set showHeading to true when Search Button is pressed
     setIsSearchIcon((prevState) => !prevState);
   };
@@ -37,10 +40,12 @@ const CountrySelection = () => {
       flagImage2.src = '/country.svg'; // Resetting image source
     }
   };
-  
+
 
   useEffect(() => {
-    setIsButtonDisabled(!(country1 && country2));
+    console.log('Country 1:', country1);
+    console.log('Country 2:', country2);
+    setIsButtonDisabled(country1.trim() === '' || country2.trim() === '');
 
     const updateFlagImage = (
       selectElement: HTMLSelectElement,
@@ -112,7 +117,7 @@ const CountrySelection = () => {
     countrySelect2.addEventListener("change", function () {
       updateFlagImage(this, flagImage2);
     });
-  }, []);
+  }, [country1, country2]);
 
   return (
     <div>
@@ -131,11 +136,16 @@ const CountrySelection = () => {
           <select
             id="countrySelect1"
             className="select cursor-text flex appearance-none w-14 flex-1 outline-none bg-transparent"
+            onChange={(e) => {
+              setCountry1(e.target.value);
+            }}
           >
             <option value="" disabled selected>
               I am from
             </option>
+            {/* Rest of your options */}
           </select>
+
         </div>
         <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
           <img
@@ -147,34 +157,42 @@ const CountrySelection = () => {
           <select
             id="countrySelect2"
             className="select cursor-text flex appearance-none outline-none w-14 flex-1 bg-transparent"
+            onChange={(e) => {
+              setCountry2(e.target.value);
+            }}
           >
             <option value="" disabled selected>
               I live in
             </option>
+            {/* Rest of your options */}
           </select>
+
         </div>
         <div className="flex justify-center">
-          
+
           {isSearchIcon ? (
-              <button /* Search Button 345 */
+            <button /* Search Button 182 */
               type="button"
+              disabled={isButtonDisabled} // Add this line
               className={`bg-white shadow-md text-red-600 ${styles.button}`}
               onClick={SearchtheVisa}
             >
-            <IoSearchSharp size={35} />
+              <IoSearchSharp size={35} />
             </button>
           ) : (
-<button /* Search Button 345 */
-            type="button"
-            className={`bg-white shadow-md text-red-600 ${styles.button}`}
-            onClick={ResettheVisa}
-          >
-            <IoClose size={35} />
-          </button>
+            <button /* Search Button 345 */
+              type="button"
+              className={`bg-white shadow-md text-red-600 ${styles.button}`}
+              onClick={ResettheVisa}
+
+            >
+              <IoClose size={35} />
+
+            </button>
           )}
         </div>
       </form>
-        <div>{showHeading && <h1>This is a heading before the button</h1>}</div>
+      <div>{showHeading && <h1>This is a heading before the button</h1>}</div>
     </div>
   );
 };
