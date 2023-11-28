@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { IoClose, IoSearchSharp } from "react-icons/io5";
 import styles from "./Country-Selection.module.css";
 import { useRouter } from "next/navigation";
+import VisaType from "../visa-type-section/VisaType";
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type
@@ -177,7 +178,7 @@ const CountrySelection = () => {
               className={`bg-white shadow-md text-red-600 ${styles.button}`}
               onClick={SearchtheVisa}
             >
-              <IoSearchSharp size={35} />
+              <IoSearchSharp size={40} />
             </button>
           ) : (
             <button /* Search Button 345 */
@@ -186,12 +187,12 @@ const CountrySelection = () => {
               onClick={ResettheVisa}
 
             >
-              <IoClose size={35} />
+              <IoClose size={40} />
             </button>
           )}
         </div>
       </form>
-      <div>{showHeading && <h1>This is a heading before the button</h1>}</div>
+      <div>{showHeading && <div className="mt-8 mx-[300px]"><VisaType /></div>}</div>
     </div>
   );
 };
