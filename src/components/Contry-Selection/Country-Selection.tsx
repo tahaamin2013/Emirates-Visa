@@ -10,6 +10,8 @@ const CountrySelection = () => {
   const [isSearchIcon, setIsSearchIcon] = useState(true);
   const [country1, setCountry1] = useState('');
   const [country2, setCountry2] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // State to manage button disabled status
+
   const router = useRouter()
   const SearchtheVisa = () => {
     setShowHeading(true); // Set showHeading to true when Search Button is pressed
@@ -38,6 +40,8 @@ const CountrySelection = () => {
   
 
   useEffect(() => {
+    setIsButtonDisabled(!(country1 && country2));
+
     const updateFlagImage = (
       selectElement: HTMLSelectElement,
       flagImage: HTMLImageElement
