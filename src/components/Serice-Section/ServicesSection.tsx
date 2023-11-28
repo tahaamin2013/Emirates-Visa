@@ -11,7 +11,7 @@ const ServicesSection = () => {
       </p>
       <hr className=" border-b-[#e90000] border-transparent border-2 w-[200px] mt-6 rounded-full mb-28" />
       <div className=" flex flex-col items-center mt-[-30px] gap-3 lg:flex-row">
-        <div className="bg-white w-[323px] lg:w-96 text-center p-[27px]">
+        <div className="bg-white w-[300px] lg:w-96 text-center p-[27px]">
           <p className="text-md text-gray-600">
             Apply online <br />
             anywhere anytime
@@ -23,7 +23,7 @@ const ServicesSection = () => {
             encryption.
           </p>
         </div>
-        <div className="bg-white w-[323px] lg:w-96 text-center pb-12 p-[27px] ">
+        <div className="bg-white w-[300px] lg:w-96 text-center pb-12 p-[27px] ">
           <p className="text-md text-gray-600">
             Get out-standing 24x7 <br />
             customer service
@@ -34,7 +34,7 @@ const ServicesSection = () => {
             choose from 1 of 6 communication channel of your choice.
           </p>
         </div>
-        <div className="bg-white w-[323px] lg:w-96 text-center p-[35.2px] pt-[32px] pb-[43px]">
+        <div className="bg-white w-[300px] lg:w-96 text-center p-[35.2px] pt-[32px] pb-[43px]">
           <p className="text-md text-gray-600">
             Enjoy 24 hours express <br />
             visa service
