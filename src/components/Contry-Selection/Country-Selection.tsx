@@ -127,7 +127,7 @@ const CountrySelection = () => {
         action=""
         className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center items-center"
       >
-        <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
+        <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
           <img
             className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}
@@ -149,7 +149,7 @@ const CountrySelection = () => {
           </select>
 
         </div>
-        <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
+        <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
           <img
             className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}

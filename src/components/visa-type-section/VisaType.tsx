@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ServicesSection from "../Serice-Section/ServicesSection";
 
 const VisaType = () => {
   const [selectedOption, setSelectedOption] = useState("singleEntry");
@@ -47,7 +48,7 @@ const VisaType = () => {
             <label className="lg:mr-28 mr-0">Multiple Entry</label>
           </div>
         </div>
-        <div className="flex lg:ml-0 ml-[55px] items-center lg:pl-[400px] mt-8 lg:mt-0">
+        <div className="flex lg:ml-0 ml-[55px] items-center lg:pl-[420px] mt-8 lg:mt-0">
           <p className="mr-4">USD</p>
           <label className="flex cursor-pointer select-none items-center">
             <div className="relative">
@@ -68,6 +69,7 @@ const VisaType = () => {
           <p className="ml-4">AED</p>
         </div>
       </div>
+
     </div>
   );
 };
