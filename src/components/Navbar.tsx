@@ -26,7 +26,6 @@ const Navbar = () => {
     <div className="shadow-md w-full top-0 left-0 text-white">
       <div className="md:flex items-center justify-between bg-[#464646] py-3 w-full h-24 md:h-fit md:px-[140px] px-11">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] lg:text-gray-800">
-          {/* <Image className=" absolute top-2" src="/Logo.png" alt="Logo" width={220} height={20} /> */}
           <Image
             src="/Logo.png"
             className=" absolute shadow-lg top-0 "
@@ -40,7 +39,7 @@ const Navbar = () => {
           <div className="relative">
       <div
         onClick={toggleMenu}
-        className="text-3xl z-30 absolute right-8 top-4 cursor-pointer md:hidden transition-all duration-300"
+        className="text-3xl z-50 fixed right-8 top-6 cursor-pointer md:hidden transition-all duration-300"
       >
                 <span className="text-3xl text-white">
           {open ? (
@@ -56,28 +55,28 @@ const Navbar = () => {
        
 
         <ul
-          className={`md:flex md:items-center text-sm md:pb-0 md:mt-0 -mt-3 md:static md:bg-transparent bg-[#464646] z-10 inset-x-0 md:z-auto left-0 w-full h-full md:w-auto md:pl-0 fixed pl-9 transition-all duration-500 ease-in ${
-            open ? "left-0" : "left-[-1150px]"
+          className={`md:flex md:items-center text-sm md:pb-0 md:mt-0 -mt-3 md:static md:bg-transparent bg-[#464646] z-10 inset-x-0 md:z-auto left-0 w-full h-full md:w-auto md:pl-0 fixed transition-all duration-500 ease-in ${
+            open ? "left-0 text-[26px] pt-14 flex flex-col" : "text-sm left-[-1000px]"
           }`}
         >
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:ml-8 text-md md:my-0 my-7"
+              className="w-full hover:bg-white/10 p-3 text-md md:text-center text-left md:my-0 py-4 my-3"
             >
               <a
                 href={link.link}
-                className=" text-blac hover:text-gray-400 duration-200"
+                className=" text-blac duration-200"
               >
                 {link.name}
               </a>
             </li>
           ))}
           <li className="md:ml-8 text-sm hidden md:block">
-            <Button>EMERGENCY VISA <br /> IN 12 HOURS</Button>
+            <Button>EMERGENCY VISA IN 12 HOURS</Button>
           </li>
 
-          <div className="flex flex-row text-2xl gap-6 lg:mx-4 mx-5 my-4">
+          <div className="md:pl-0 pl-3 flex flex-row text-start text-2xl gap-6 lg:mx-4 my-4">
             <Link href="/" className="socialLink">
               <FaFacebookF size={16} />
             </Link>
@@ -86,7 +85,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <select className="bg-transparent outline-none w-[80px]">
+          <select className="bg-transparent md:pl-0 pl-3 outline-none w-fit text-sm">
             <option value="" className="text-black">English</option>
             <option value="" className="text-black">العربية</option>
           </select>
