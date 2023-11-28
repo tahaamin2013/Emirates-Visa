@@ -76,7 +76,7 @@ const CountrySelection = () => {
         </div>
         <div className="selection flex-1 w-full md:max-w-[430px] bg-white p-2 py-4 shadow-md flex items-center">
           <img className={`flag w-11 h-11 ${isSelected ? 'rounded-full' : 'rounded-none'} mr-2`} src="/country.svg" alt="Country Flag" />
-          <select id="countrySelect2" className="select cursor-text flex appearance-none outline-none w-14 flex-1">
+          <select id="countrySelect2" className="select cursor-text flex appearance-none outline-none w-14 flex-1 bg-transparent">
             <option value="" disabled selected>
               I live in
             </option>
