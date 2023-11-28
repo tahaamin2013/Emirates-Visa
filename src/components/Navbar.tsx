@@ -24,11 +24,11 @@ const Navbar = () => {
 
   return (
     <div className="shadow-md w-full top-0 left-0 text-white">
-      <div className="md:flex items-center justify-between bg-[#464646] py-3 w-full h-24 md:h-fit md:px-[140px] px-11">
-        <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] lg:text-gray-800">
+      <div className="md:flex items-center justify-between bg-[#464646] py-3 w-full h-24 md:h-fit md:px-[140px] px-[27px]">
+        <div className="font-bold text-xl cursor-pointer flex items-center font-[Poppins] lg:text-gray-800">
           <Image
             src="/Logo.png"
-            className=" absolute shadow-lg top-0 "
+            className=" absolute shadow-lg top-0"
             alt="Logo"
             width={150}
             height={40}
@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="relative">
       <div
         onClick={toggleMenu}
-        className="text-3xl z-50 fixed right-8 top-6 cursor-pointer md:hidden transition-all duration-300"
+        className="text-3xl z-50 absolute right-0 top-6 cursor-pointer md:hidden transition-all duration-300"
       >
                 <span className="text-3xl text-white">
           {open ? (
