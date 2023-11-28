@@ -30,7 +30,7 @@ export default function RootLayout({
       {/* <head>
       <link rel="icon" href="/fav-32.ico" sizes="any" />
       </head> */}
-      <body className={inter.className}>
+      <body className={`${inter.className}  bg-[#f5f5f5]`}>
       <Navbar />
         {children}</body>
     </html>

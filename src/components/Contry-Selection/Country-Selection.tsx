@@ -192,7 +192,7 @@ const CountrySelection = () => {
           )}
         </div>
       </form>
-      <div>{showHeading && <div className="mt-8 mx-[300px]"><VisaType /></div>}</div>
+      <div>{showHeading && <div className="mt-10 flex justify-center"><VisaType /></div>}</div>
     </div>
   );
 };
