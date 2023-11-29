@@ -5,7 +5,7 @@ const VisaType = () => {
   const [selectedOption, setSelectedOption] = useState("singleEntry");
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleOptionChange = (e) => {
+  const handleOptionChange = (e: any) => {
     setSelectedOption(e.target.id);
   };
 
