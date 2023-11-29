@@ -32,7 +32,7 @@ const ServicesSection = () => {
           </div>
       </div>
       
-    <p className="text-center text-sm mt-20 lg:text-sm text-gray-600">
+    <p className="text-center text-sm mt-16 lg:text-sm text-gray-600">
         Exclusions apply: Applications made on weekends (Friday & Saturday) and public holidays may take longer to process.
       </p>
   </>

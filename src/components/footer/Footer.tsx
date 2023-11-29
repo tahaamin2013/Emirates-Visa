@@ -1,13 +1,18 @@
+'use client'
+
 import React from "react";
 import { FaCheck } from "react-icons/fa6";
 
-function scrollToTop() {
+const scrollToTop =  () => {
   window.scrollTo({
-    top: 0,
+    top: 400,
     behavior: "smooth", // Optional: Use smooth scrolling
   });
 }
+
+
 const Footer = () => {
+
   return (
     <div className=" bg-white w-full text-center pt-20">
       <div className="lg:text-start flex flex-col xl:flex-row justify-between sm:text-center lg:mx-20 mx-0">
@@ -20,8 +25,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <a
-          href="/"
+        <button
           onClick={scrollToTop}
           className="bg-[#ef1810] ml-20 mt-4 lg:mt-0 lg:ml-0 py-4 px-5 w-[210px] transition-all duration-500 ease-out text-white hover:bg-[#e90000]"
         >
@@ -30,7 +34,7 @@ const Footer = () => {
             APPLY NOW
             <FaCheck className=" mt-0 ml-4 text-2xl" />
           </p>
-        </a>
+        </button>
       </div>
       <hr />
       <div className=" p-48"></div>
@@ -39,3 +43,4 @@ const Footer = () => {
 };
 
 export default Footer;
+  
