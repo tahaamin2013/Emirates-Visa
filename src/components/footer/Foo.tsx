@@ -10,7 +10,7 @@ const scrollToTop = () => {
 
 const Foo = () => {
   return (
-    <div className="w-full h-fit bg-white-500 mb-4 shadow-md px-18 sm:px-28 py-24 flex flex-col text-center sm:text-left sm:flex-row items-center justify-between gap-6">
+    <div className="w-full h-fit bg-white-500 mb-4 border-b px-18 sm:px-28 py-24 flex flex-col text-center sm:text-left sm:flex-row items-center justify-between gap-6">
       <div>
         <h1 className="sm:text-2xl text-xl">Want a Visa by Sunday, 3 Dec 2023?</h1>
         <p className="text-xl text-red-500">Apply within 3 Hrs 58 Mins</p>
