@@ -55,7 +55,7 @@ const Navbar = () => {
 
         <ul
           className={`lg:flex lg:items-center text-2xl lg:text-sm lg:pb-0 lg:mt-0 -mt-3 lg:static lg:bg-transparent bg-[#464646] z-10 inset-x-0 lg:z-auto left-0 w-full h-full lg:w-auto lg:pl-0 fixed transition-all duration-500 ease-in ${
-            open ? "left-0 text-[26px] pt-14 flex flex-col" : "text-sm left-[-1000px]"
+            open ? "left-0 text-[26px] pt-14 flex flex-col" : "text-sm left-[-1400px]"
           }`}
         >
 
