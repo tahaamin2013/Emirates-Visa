@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Foo from "./Foo";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -83,9 +84,18 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+           
           </div>
+          
+         
         </div>
+        
       </footer>
+      <div className="flex flex-col justify-center items-center gap-16">
+      <Image src='/Visa.svg' className="" alt="footer image" width={260} height={260} />
+      <p className="text-center mb-9 text-gray-700 font-light text-sm">emiratesvisa.com is officially registered to issue UAE Tourist Visas. <br />
+© 2023 All rights reserved.</p>
+</div>
     </div>
   );
 };
