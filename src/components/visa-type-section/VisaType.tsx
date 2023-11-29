@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import ServicesSection from "../Serice-Section/ServicesSection";
+import SingleVisaPrice from "../Single-Visa-price/page";
 
 const VisaType = () => {
   const [selectedOption, setSelectedOption] = useState("singleEntry");
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleOptionChange = (e: any) => {
+  const handleOptionChange = (e) => {
     setSelectedOption(e.target.id);
   };
 
@@ -69,6 +69,11 @@ const VisaType = () => {
           <p className="ml-4">AED</p>
         </div>
       </div>
+
+      {/* Conditional rendering for SingleVisaPrice */}
+      {selectedOption === "singleEntry" && (
+        <SingleVisaPrice />
+      )}
 
     </div>
   );

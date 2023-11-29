@@ -4,7 +4,7 @@ import Service from "./Service";
 const ServicesSection = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center mt-14">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-lg lg:text-2xl font-normal lg:font-medium">
             Apply for a visa with peace of mind
