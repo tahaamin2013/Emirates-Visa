@@ -16,13 +16,15 @@ const ServicesSection = () => {
 
         <div className="flex gap-5 p-10 flex-wrap justify-center">
           <Service
-            title="Apply for a visa with peace of mind"
-            description="Application in minutes - 24/7 help & support"
+            title="Apply online
+            anywhere anytime"
+            description="We make it easy and secure to apply online. We take your privacy seriously, data is encrypted with industry-leading 256-bit encryption."
             className=""
           />
           <Service
-            title="Apply online anywhere anytime"
-            description="We make it easy and secure to apply online. We take your privacy seriously, data is encrypted with industry-leading 256-bit encryption."
+            title="Get out-standing 24x7
+            customer service"
+            description="Our team is available for you to get you visa hassle free. You choose from 1 of 6 communication channel of your choice."
             className=""
           />
           <Service

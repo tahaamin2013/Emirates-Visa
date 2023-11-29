@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-import { FaCheck } from "react-icons/fa6";
 import Link from "next/link";
 import Foo from "./Foo";
 
@@ -9,7 +7,7 @@ const Footer = () => {
   return (
     <div className=" bg-white w-full">
       <Foo />
-      
+
       <footer className="bg-white flex justify-center w-full dark:bg-gray-900">
         <div className="justify-center grid grid-cols-1 text-left gap-28  px-4 py-6 lg:py-8 md:text-left md:grid-cols-4">
           {/* Get in touch */}
