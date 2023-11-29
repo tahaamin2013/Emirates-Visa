@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Service = ({title, description}: {title: string, description: string}) => {
+const Service = ({title, description, className}: {title: string, description: string, className: string}) => {
   return (
-    <div className="bg-white w-[339px] h-[250px] lg:h-[215px] text-center align-middle flex flex-col items-center p-[35.2px] pt-[32px] pb-[43px]">
+    <div className={`bg-white w-[339px] h-[215px] lg:h-[215px] text-center align-middle flex flex-col items-center p-[35.2px] pt-[32px] pb-[43px] ${className}`}>
           <p className="text-md text-gray-600 w-44">
             {title}
           </p>
