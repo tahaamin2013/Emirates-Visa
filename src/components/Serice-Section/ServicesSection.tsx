@@ -11,7 +11,7 @@ const ServicesSection = () => {
         Application in minutes - 24/7 help & support
       </p>
       <hr className="border-b-[rgb(233,0,0)] border-transparent border-2 w-[200px] mt-6 rounded-full mb-28" />
-      <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 justify-center items-center gap-3">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center gap-3">
         <Service
           title="Apply online anywhere anytime"
           description="We make it easy and secure to apply online. We take your privacy seriously, data is encrypted with industry-leading 256-bit encryption."
