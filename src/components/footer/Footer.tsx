@@ -38,11 +38,11 @@ const Footer = () => {
       <hr />
 
       <footer className="bg-white dark:bg-gray-900">
-        <div className="ml-[70px] w-full max-w-screen-xl">
+        <div className="w-full ml-[0px]">
           <div className="grid grid-cols-1 text-left gap-8 px-4 py-6 lg:py-8 md:text-left md:grid-cols-4">
 
             {/* Get in touch */}
-            <div>
+            <div className="ml-20 ">
               <h2 className="mb-6 text-black">Get in touch</h2>
               <ul className="text-gray-700 font-light">
                 <li className="mb-4">
