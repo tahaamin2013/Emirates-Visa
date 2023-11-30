@@ -15,7 +15,7 @@ const SingleVisa = ({
 }) => {
   return (
     <div
-    className={`bg-white pt-10 pb-60 transition-all duration-500 ease-out hover:relative hover:shadow-lg hover:bottom-1  w-[330px] h-[275px] border-b border-gray-300 text-center align-middle flex flex-col items-center `}
+    className={`bg-white pt-10 pb-60 transition-all duration-300 ease-in-out hover:relative hover:shadow-lg hover:-translate-y-1 w-[330px] h-[275px] border-b border-gray-300 text-center align-middle flex flex-col items-center`}
   >
     <p className="text-3xl">{Days}</p>
     <p className="text-gray-900 text-lg uppercase">{Single}</p>
