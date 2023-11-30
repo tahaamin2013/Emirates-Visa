@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SingleVisaPrice from "../Single-Visa-price/page";
+import MultipleVisa from "../Multiple-Visa-price/MultipleVisa";
 
 const VisaType = () => {
   const [selectedOption, setSelectedOption] = useState("singleEntry");
@@ -74,6 +75,8 @@ const VisaType = () => {
       {selectedOption === "singleEntry" && (
         <SingleVisaPrice />
       )}
+
+{selectedOption === "multipleEntry" && <MultipleVisa />}
 
     </div>
   );
