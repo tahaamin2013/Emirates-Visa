@@ -5,6 +5,7 @@ import { IoClose, IoSearchSharp } from "react-icons/io5";
 import styles from "./Country-Selection.module.css";
 import { useRouter } from "next/navigation";
 import VisaType from "../visa-type-section/VisaType";
+import SingleVisaPrice from "../Single-Visa-price/page";
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type
@@ -14,12 +15,15 @@ const CountrySelection = () => {
   const [country1, setCountry1] = useState('');
   const [country2, setCountry2] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true); // State to manage button disabled status
+  const [showContent, setShowContent] = useState(true);
 
   const router = useRouter()
   const SearchtheVisa = () => {
-
     setShowHeading(true); // Set showHeading to true when Search Button is pressed
     setIsSearchIcon((prevState) => !prevState);
+
+    // Hide content when search button is clicked
+    setShowContent(false);
   };
 
   const ResettheVisa = () => {
@@ -40,6 +44,7 @@ const CountrySelection = () => {
       flagImage1.src = '/nationality.svg'; // Resetting image source
       flagImage2.src = '/country.svg'; // Resetting image source
     }
+    setShowContent(true);
   };
 
 
@@ -194,6 +199,23 @@ const CountrySelection = () => {
           )}
         </div>
       </form>
+
+      {showContent && (
+      <div>
+      <div className="flex mt-14 mb-8 flex-col justify-center items-center">
+        <h1 className="text-lg lg:text-2xl font-normal lg:font-medium">
+        Choose from a range of UAE Visa options
+        </h1>
+        <p className="text-sm lg:text-lg text-gray-600">
+        to suit your needs!
+        </p>
+      </div>
+      <SingleVisaPrice />
+    </div>
+    )}
+
+
+
       <div>{showHeading && <div className="mt-10"><VisaType /></div>}</div>
     </div>
   );

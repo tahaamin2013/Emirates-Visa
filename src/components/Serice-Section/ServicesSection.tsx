@@ -12,6 +12,7 @@ const ServicesSection = () => {
           <p className="text-sm lg:text-lg text-gray-600">
             Application in minutes - 24/7 help & support
           </p>
+          <hr className=" border-b-[#e90000] border-[2px] border-transparent w-[190px] mt-4 rounded-full mb-3" />
         </div>
 
         <div className="flex gap-5 p-10 flex-wrap justify-center">
