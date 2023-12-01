@@ -46,7 +46,7 @@ const FinalSingleVisaPricess = ({
           <p className="text-sm mt-3 w-64">{description}</p>
         </div>
       </DialogTrigger>
-      <DialogContent className="bg-[#efefef] max-w-[900px] border-none">
+      <DialogContent className="bg-[#efefef] w-full h-full lg:h-fit lg:max-w-[900px] border-none">
         <DialogHeader>
           <DialogTitle>Are you sure absolutely sure?</DialogTitle>
           <DialogDescription>

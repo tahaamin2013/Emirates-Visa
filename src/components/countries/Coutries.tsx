@@ -40,9 +40,9 @@ const CountrySelection = (): JSX.Element => {
 
   return (
     <div className="container flex justify-center items-center">
-  <form className="flex -ml-8 md:flex-row gap-4">
+  <form className="flex -ml-8 flex-col md:flex-row gap-4">
     {/* Country 1 Selection */}
-    <div className="selection w-full md:max-w-[470px] bg-white p-5 pr-16 py-4 shadow-md flex items-center">
+    <div className="selection w-full max-w-full lg:max-w-[470px] bg-white p-5 pr-16 py-4 shadow-md flex items-center">
       <img
         className={`flag w-11 h-11 ${selectedCountry1 ? 'rounded-full' : 'rounded-none'} mr-2`}
         src={selectedCountry1 === '' ? 'nationality.svg' : countries.find((c) => c.name.common === selectedCountry1)?.flags.png || 'nationality.svg'}
@@ -50,7 +50,7 @@ const CountrySelection = (): JSX.Element => {
       />
       <select
         id="countrySelect1"
-        className="select flex-grow outline-none border-none" // Added flex-grow to expand the select element
+        className="select flex-grow outline-none border-none lg:w-[300px]" // Added flex-grow to expand the select element
         placeholder="Select a country"
         value={selectedCountry1}
         onChange={handleCountry1Change}
