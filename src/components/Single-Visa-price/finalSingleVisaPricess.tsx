@@ -48,9 +48,9 @@ const FinalSingleVisaPricess = ({
         </DialogTrigger>
       <DialogContent className="bg-[#efefef]  w-full h-full lg:h-fit lg:max-w-[900px] border-none">
         <DialogHeader>
-          <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+         
           <DialogDescription>
-          
+         <p className="text-center text-xl mb-12 mt-7">Please tell us where are you from and where do you live</p>
             <Countries />
           </DialogDescription>
         </DialogHeader>
