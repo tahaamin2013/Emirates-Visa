@@ -183,23 +183,26 @@ const CountrySelection = () => {
         <div className="flex justify-center">
 
           {isSearchIcon ? (
-            <button /* Search Button 182 */
-              type="button"
-              disabled={isButtonDisabled} // Add this line
-              className={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
-              onClick={SearchtheVisa}
-            >
-              <IoSearchSharp size={40} />
-            </button>
+           <button
+           type="button"
+           disabled={isButtonDisabled}
+           className={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
+           onClick={SearchtheVisa}
+           aria-label="Search Visa" // Add an accessible label here
+         >
+           <IoSearchSharp size={40} />
+         </button>
+         
           ) : (
-            <button /* Search Button 345 */
-              type="button"
-              className={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
-              onClick={ResettheVisa}
+            <button
+  type="button"
+  className={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
+  onClick={ResettheVisa}
+  aria-label="Reset Visa" // Add an accessible label here
+>
+  <IoClose size={40} />
+</button>
 
-            >
-              <IoClose size={40} />
-            </button>
           )}
         </div>
       </form>
