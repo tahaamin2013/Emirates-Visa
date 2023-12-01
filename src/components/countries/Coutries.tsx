@@ -1,4 +1,5 @@
 // components/CountrySelection.tsx
+import Image from 'next/image';
 import { useEffect, useState, ChangeEvent } from 'react';
 
 type Country = {
@@ -42,7 +43,7 @@ const CountrySelection = (): JSX.Element => {
   <form className="flex flex-col md:flex-row gap-4">
     {/* Country 1 Selection */}
     <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-      <img
+      <Image
         className={`flag w-11 h-11 ${selectedCountry1 ? 'rounded-full' : 'rounded-none'} mr-2`}
         src={selectedCountry1 === '' ? 'nationality.svg' : countries.find((c) => c.name.common === selectedCountry1)?.flags.png || 'nationality.svg'}
         alt="Flag"
@@ -67,7 +68,7 @@ const CountrySelection = (): JSX.Element => {
 
     {/* Country 2 Selection */}
     <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-      <img
+      <Image
         className={`flag w-11 h-11 ${selectedCountry2 ? 'rounded-full' : 'rounded-none'} mr-2`}
         src={selectedCountry2 === '' ? 'country.svg' : countries.find((c) => c.name.common === selectedCountry2)?.flags.png || 'nationality.svg'}
         alt="Flag"

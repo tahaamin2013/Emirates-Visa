@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import VisaType from "../visa-type-section/VisaType";
 import SingleVisaPriceo from "../Single-Visa-price/SingleVisaPriceo";
 import Countries from "../countries/Coutries";
+import Image from "next/image";
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type
@@ -133,7 +134,7 @@ const CountrySelection = () => {
         className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center items-center"
       >
         <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
-          <img
+          <Image
             className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}
             src="/nationality.svg"
@@ -155,7 +156,7 @@ const CountrySelection = () => {
 
         </div>
         <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
-          <img
+          <Image
             className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}
             src="/country.svg"
