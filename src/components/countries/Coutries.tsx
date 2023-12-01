@@ -49,7 +49,7 @@ const CountrySelection = (): JSX.Element => {
       />
       <select
         id="countrySelect1"
-        className="select flex-grow outline-none border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
+        className="select flex-grow outline-none bg-transparent border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
         placeholder="Select a country"
         value={selectedCountry1}
         onChange={handleCountry1Change}
@@ -74,7 +74,7 @@ const CountrySelection = (): JSX.Element => {
       />
       <select
         id="countrySelect2"
-         className="select flex-grow outline-none border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
+         className="select flex-grow bg-transparent outline-none border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
         placeholder="Select a country"
         value={selectedCountry2}
         onChange={handleCountry2Change}
