@@ -127,8 +127,7 @@ const CountrySelection = () => {
   }, [country1, country2]);
 
   return (
-    <div>
-
+    <>
       <form
         action=""
         className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center items-center"
@@ -187,7 +186,7 @@ const CountrySelection = () => {
             <button /* Search Button 182 */
               type="button"
               disabled={isButtonDisabled} // Add this line
-              className={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
+              class={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
               onClick={SearchtheVisa}
             >
               <IoSearchSharp size={40} />
@@ -195,7 +194,7 @@ const CountrySelection = () => {
           ) : (
             <button /* Search Button 345 */
               type="button"
-              className={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
+              class={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
               onClick={ResettheVisa}
 
             >
@@ -222,7 +221,7 @@ const CountrySelection = () => {
 
 
       <div>{showHeading && <div className="mt-10"><VisaType /></div>}</div>
-    </div>
+    </>
   );
 };
 
