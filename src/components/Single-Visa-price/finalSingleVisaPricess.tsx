@@ -28,7 +28,7 @@ const FinalSingleVisaPricess = ({
   return (
     <Dialog>
       <DialogTrigger>
-        <div
+         <div
           className={`bg-white pt-10 pb-60 transition-all duration-300 ease-in-out hover:relative hover:shadow-lg hover:-translate-y-1 w-[330px] h-[275px] border-b border-gray-300 text-center align-middle flex flex-col items-center`}
         >
           {BestPrice && (
@@ -45,11 +45,12 @@ const FinalSingleVisaPricess = ({
           </div>
           <p className="text-sm mt-3 w-64">{description}</p>
         </div>
-      </DialogTrigger>
-      <DialogContent className="bg-[#efefef] w-full h-full lg:h-fit lg:max-w-[900px] border-none">
+        </DialogTrigger>
+      <DialogContent className="bg-[#efefef]  w-full h-full lg:h-fit lg:max-w-[900px] border-none">
         <DialogHeader>
           <DialogTitle>Are you sure absolutely sure?</DialogTitle>
           <DialogDescription>
+          
             <Countries />
           </DialogDescription>
         </DialogHeader>
