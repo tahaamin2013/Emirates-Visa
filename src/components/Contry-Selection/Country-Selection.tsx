@@ -135,7 +135,9 @@ const CountrySelection = () => {
       >
         <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
           <Image
-            className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
+          width={0}
+          height={0}
+            className={`w-11 h-11 flag ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}
             src="/nationality.svg"
             alt="Nationality Flag"
@@ -157,6 +159,8 @@ const CountrySelection = () => {
         </div>
         <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
           <Image
+         width={0}
+         height={0}
             className={`flag w-11 h-11 ${isSelected ? "rounded-full" : "rounded-none"
               } mr-2`}
             src="/country.svg"

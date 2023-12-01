@@ -1,5 +1,4 @@
 // components/CountrySelection.tsx
-import Image from 'next/image';
 import { useEffect, useState, ChangeEvent } from 'react';
 
 type Country = {
@@ -43,14 +42,14 @@ const CountrySelection = (): JSX.Element => {
   <form className="flex flex-col md:flex-row gap-4">
     {/* Country 1 Selection */}
     <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-      <Image
+      <img
         className={`flag w-11 h-11 ${selectedCountry1 ? 'rounded-full' : 'rounded-none'} mr-2`}
         src={selectedCountry1 === '' ? 'nationality.svg' : countries.find((c) => c.name.common === selectedCountry1)?.flags.png || 'nationality.svg'}
         alt="Flag"
       />
       <select
         id="countrySelect1"
-        className="select flex-grow outline-none bg-transparent border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
+        className="select flex-grow outline-none bg-transparent border-none w-full lg:w-[300px]" 
         placeholder="Select a country"
         value={selectedCountry1}
         onChange={handleCountry1Change}
@@ -68,7 +67,7 @@ const CountrySelection = (): JSX.Element => {
 
     {/* Country 2 Selection */}
     <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-      <Image
+      <img
         className={`flag w-11 h-11 ${selectedCountry2 ? 'rounded-full' : 'rounded-none'} mr-2`}
         src={selectedCountry2 === '' ? 'country.svg' : countries.find((c) => c.name.common === selectedCountry2)?.flags.png || 'nationality.svg'}
         alt="Flag"
