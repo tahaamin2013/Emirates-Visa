@@ -186,7 +186,7 @@ const CountrySelection = () => {
             <button /* Search Button 182 */
               type="button"
               disabled={isButtonDisabled} // Add this line
-              class={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
+              className={`bg-white shadow-md transition-all ease-in hover:bg-gray-100 text-red-600 ${styles.button}`}
               onClick={SearchtheVisa}
             >
               <IoSearchSharp size={40} />
@@ -194,7 +194,7 @@ const CountrySelection = () => {
           ) : (
             <button /* Search Button 345 */
               type="button"
-              class={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
+              className={`bg-white transition-all ease-in hover:bg-gray-100 shadow-md text-red-600 ${styles.button}`}
               onClick={ResettheVisa}
 
             >
