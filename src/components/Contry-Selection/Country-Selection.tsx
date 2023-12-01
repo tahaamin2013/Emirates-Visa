@@ -1,12 +1,11 @@
-'use client'
-
+'use client';
 import React, { useState, useEffect } from "react";
 import { IoClose, IoSearchSharp } from "react-icons/io5";
 import styles from "./Country-Selection.module.css";
 import { useRouter } from "next/navigation";
 import VisaType from "../visa-type-section/VisaType";
-import SingleVisaPrice from "../Single-Visa-price/page";
 import SingleVisaPriceo from "../Single-Visa-price/SingleVisaPriceo";
+import Countries from "../countries/Coutries";
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type

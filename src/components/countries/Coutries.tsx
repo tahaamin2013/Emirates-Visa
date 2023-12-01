@@ -1,0 +1,104 @@
+// components/CountrySelection.tsx
+import { useEffect, useState, ChangeEvent } from 'react';
+
+type Country = {
+  name: {
+    common: string;
+  };
+  flags: {
+    png: string;
+  };
+};
+
+const CountrySelection = (): JSX.Element => {
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [selectedCountry1, setSelectedCountry1] = useState<string>('');
+  const [isSelected, setIsSelected] = useState(false);
+  const [selectedCountry2, setSelectedCountry2] = useState<string>('');
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch('https://restcountries.com/v3.1/all');
+      const data = await response.json();
+      setCountries(data);
+    } catch (error) {
+      console.error('Error fetching countries:', error);
+    }
+  };
+
+  const handleCountry1Change = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry1(e.target.value);
+  };
+
+  const handleCountry2Change = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry2(e.target.value);
+  };
+
+  return (
+    <div className="container flex justify-center items-center">
+  <form className="flex -ml-8 md:flex-row gap-4">
+    {/* Country 1 Selection */}
+    <div className="selection w-full md:max-w-[470px] bg-white p-5 pr-16 py-4 shadow-md flex items-center">
+      <img
+        className={`flag w-11 h-11 ${selectedCountry1 ? 'rounded-full' : 'rounded-none'} mr-2`}
+        src={selectedCountry1 === '' ? 'nationality.svg' : countries.find((c) => c.name.common === selectedCountry1)?.flags.png || 'nationality.svg'}
+        alt="Flag"
+      />
+      <select
+        id="countrySelect1"
+        className="select flex-grow outline-none border-none" // Added flex-grow to expand the select element
+        placeholder="Select a country"
+        value={selectedCountry1}
+        onChange={handleCountry1Change}
+      >
+        <option value="" disabled selected>
+          Select country
+        </option>
+        {countries.map((country) => (
+          <option key={country.name.common} value={country.name.common}>
+            {country.name.common}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Country 2 Selection */}
+    <div className="selection w-full md:max-w-[470px] bg-white p-5 pr-16 py-4 shadow-md flex items-center">
+      <img
+        className={`flag w-11 h-11 ${selectedCountry2 ? 'rounded-full' : 'rounded-none'} mr-2`}
+        src={selectedCountry2 === '' ? 'country.svg' : countries.find((c) => c.name.common === selectedCountry2)?.flags.png || 'nationality.svg'}
+        alt="Flag"
+      />
+      <select
+        id="countrySelect2"
+        className="select flex-grow outline-none border-none" // Added flex-grow to expand the select element
+        placeholder="Select a country"
+        value={selectedCountry2}
+        onChange={handleCountry2Change}
+      >
+        <option value="" disabled selected>
+          Select country
+        </option>
+        {countries.map((country) => (
+          <option key={country.name.common} value={country.name.common}>
+            {country.name.common}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Submit Button */}
+    <button type="submit">
+      <i className="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+</div>
+
+  );
+};
+
+export default CountrySelection;
