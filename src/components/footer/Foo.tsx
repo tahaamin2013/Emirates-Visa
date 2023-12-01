@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaCheck } from "react-icons/fa";
 import LiveTime from "../LiveTime"; // Import the LiveTime component
-import moment from "moment-timezone"; // Import moment-timezone
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -11,20 +10,10 @@ const scrollToTop = () => {
 };
 
 const Foo = () => {
-  const [dubaiTime, setDubaiTime] = useState(moment.tz("Asia/Dubai").format("hh:mm A")); // Set initial Dubai time
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDubaiTime(moment.tz("Asia/Dubai").format("hh:mm A")); // Update Dubai time every second
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
-      <LiveTime currentTime={dubaiTime} /> {/* Display live time component */}
-      <div className="w-full h-fit bg-white-500 mb-4 border-b px-18 sm:px-28 py-24 flex flex-col text-center sm:text-left sm:flex-row items-center justify-between gap-6">
+      <LiveTime />
+      <div className="w-full h-fit bg-white-500 mb-4 border-b px-18 sm:px-28 py-16 flex flex-col text-center sm:text-left sm:flex-row items-center justify-between gap-6">
         <div>
           <h1 className="sm:text-2xl text-xl">Want a Visa by Sunday, 3 Dec 2023?</h1>
           <p className="text-xl" style={{ color: "#e90000" }}>Apply within 3 Hrs 58 Mins</p>
