@@ -6,6 +6,7 @@ import styles from "./Country-Selection.module.css";
 import { useRouter } from "next/navigation";
 import VisaType from "../visa-type-section/VisaType";
 import SingleVisaPrice from "../Single-Visa-price/page";
+import SingleVisaPriceo from "../Single-Visa-price/SingleVisaPriceo";
 
 const CountrySelection = () => {
   const [countries, setCountries] = useState<any[]>([]); // Adjust 'any[]' to match your country data type
@@ -210,7 +211,7 @@ const CountrySelection = () => {
         to suit your needs!
         </p>
       </div>
-      <SingleVisaPrice />
+      <SingleVisaPriceo />
     </div>
     )}
 
