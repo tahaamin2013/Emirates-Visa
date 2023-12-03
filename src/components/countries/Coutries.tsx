@@ -39,7 +39,8 @@ const CountrySelection = (): JSX.Element => {
   };
 
   return (
-  <form className="flex flex-col md:flex-row gap-4">
+    <>
+  <form className="flex flex-col md:flex-row gap-4 -mb-14">
     {/* Country 1 Selection */}
     <div className="selection w-full bg-white p-5 shadow-md flex items-center">
       <img
@@ -89,8 +90,10 @@ const CountrySelection = (): JSX.Element => {
         ))}
       </select>
     </div>
+    
   </form>
-
+  <button className="bg-[#888888] px-12 text-md ml-[640px] relative top-[154px] font-light pb-[9px] pt-[9px] uppercase">Start</button>
+  </>
   );
 };
 
