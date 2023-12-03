@@ -208,14 +208,15 @@ const FinalSingleVisaPricess = ({
           {/* ... (your existing content) */}
           <button
             onClick={handleStartButtonClick}
-            className={`bg-[#e90000] text-white pl-12 pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+            className={`bg-[#e90000] text-white pl-40 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
               isStartButtonEnabled() ? '' : 'opacity-50 cursor-not-allowed'
             }`}
             disabled={!isStartButtonEnabled()}
           >
-            Start <IoIosArrowForward className="text-2xl ml-8 text-white" />
+            Start <IoIosArrowForward className="text-2xl ml-[80px] xl:ml-8 text-white" />
           </button>
         </div>
+        
       ) : (
         <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
           <div className="bg-[#efefef] rounded shadow-md p-6 xl:w-fit xl:h-fit w-full h-full">
