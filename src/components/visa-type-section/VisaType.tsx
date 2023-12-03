@@ -20,7 +20,7 @@ const VisaType = () => {
       <p className="text-lg text-gray-600">
         No hidden fees! All taxes included.
       </p>
-      <div className="p-2 py-4 shadow-md w-fit flex bg-white justify-between mt-4 sm:flex-row flex-col">
+      <div className="p-2 py-4 shadow-md xl:w-fit flex bg-white justify-between mt-4 sm:flex-row flex-col">
         <div className="flex">
           <div className="flex items-center">
             <input
