@@ -1,10 +1,20 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 const TermsAndCondition = () => {
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [showParagraph, setShowParagraph] = useState(false); // 
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const handleDivClick1 = () => {
     setIsChecked1(!isChecked1);
@@ -32,11 +42,12 @@ const TermsAndCondition = () => {
   };
 
   return (
+    
     <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
-      <div className="bg-[#efefef] rounded-lg text-center shadow-md p-6 xl:w-fit xl:h-full w-full h-full">
+      <div className="bg-[#efefef] rounded shadow-md p-6 xl:w-fit xl:h-fit w-full h-full">
       
-        <h1 className="text-2xl">Let(s) get your Visa(s)</h1>
-        <p className=" text-black/60">
+        <h1 className="text-2xl text-center">Let(s) get your Visa(s)</h1>
+        <p className=" text-black/60 text-center">
           What(s) required to make this application?
         </p>
         <div className=' flex flex-col lg:flex-row gap-3 mb-9 mt-9'>
