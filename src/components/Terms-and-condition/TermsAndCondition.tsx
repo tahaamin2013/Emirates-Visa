@@ -107,7 +107,7 @@ const TermsAndCondition = () => {
               onClick={handleDivClick1}
             >
               {isChecked1 ? (
-                <span className="text-red-500 font-bold mt-1">✔</span>
+                <span className="text-red-500 font-bold mt-0">✔</span>
               ) : (
                 <span></span>
               )}
