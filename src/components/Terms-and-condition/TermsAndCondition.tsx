@@ -35,9 +35,9 @@ const TermsAndCondition = () => {
     <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
       <div className="bg-[#efefef] rounded-lg text-center shadow-md p-6 xl:w-fit xl:h-full w-full h-full">
       
-        <h1 className="text-2xl">Let's get your Visa(s)</h1>
+        <h1 className="text-2xl">Let(s) get your Visa(s)</h1>
         <p className=" text-black/60">
-          What's required to make this application?
+          What(s) required to make this application?
         </p>
         <div className=' flex flex-col lg:flex-row gap-3 mb-9 mt-9'>
         <div
