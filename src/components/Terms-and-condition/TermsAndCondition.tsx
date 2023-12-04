@@ -41,14 +41,7 @@ const TermsAndCondition = () => {
         <p className=" text-black/60">
           What's required to make this application?
         </p>
-
-
-
-
-
-
         <div className=' flex flex-col lg:flex-row gap-3 mb-9 mt-9'>
-
         <div
   className={`bg-white cursor-pointer pt-2 px-4 transition-all duration-300 ease-in-out hover:relative hover:shadow-lg hover:-translate-y-1 pb-6 border-b border-gray-300 text-center align-middle flex flex-col items-center`}
 >
@@ -58,9 +51,6 @@ const TermsAndCondition = () => {
   <p className="text-[12px] mt-3 w-48">Clear passport scan or picture with minimum of 6 months validity.</p>
 
 </div>
-
-
-
 
 <div
   className={`bg-white pt-2 px-4 transition-all duration-300 ease-in-out hover:relative hover:shadow-lg hover:-translate-y-1 pb-6 border-b border-gray-300 text-center align-middle flex flex-col items-center`}
