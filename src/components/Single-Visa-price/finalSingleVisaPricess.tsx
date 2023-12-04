@@ -112,11 +112,14 @@ const FinalSingleVisaPricess = ({
             Anyone who has this link will be able to view this.
           </DialogDescription>
         </DialogHeader>
-        
+
         <form className="flex flex-col md:flex-row gap-4">
           {/* Country 1 Selection */}
           <div className="w-full bg-white p-5 shadow-md flex items-center">
-            <img className={`flag w-11 h-11 ${selectedCountry1 ? "rounded-full" : "rounded-none"} mr-2`}
+            <img
+              className={`flag w-11 h-11 ${
+                selectedCountry1 ? "rounded-full" : "rounded-none"
+              } mr-2`}
               src={
                 selectedCountry1 === ""
                   ? "nationality.svg"
@@ -125,7 +128,7 @@ const FinalSingleVisaPricess = ({
               }
               alt="Flag"
             />
-            
+
             <select
               id="countrySelect1"
               className="flex-grow outline-none bg-transparent border-none w-full lg:w-[300px]"
@@ -175,7 +178,6 @@ const FinalSingleVisaPricess = ({
               ))}
             </select>
           </div>
-
         </form>
 
         <DialogFooter className="sm:justify-start">
@@ -184,6 +186,22 @@ const FinalSingleVisaPricess = ({
               Cancel
             </Button>
           </DialogClose>
+          {!showContent ? (
+            <div>
+              <Button
+                onClick={handleStartButtonClick}
+                disabled={!isStartButtonEnabled()}
+                className={`bg-[#e90000bb] hover:bg-[#e90000] text-white px-4 py-2 text-md font-light uppercase flex text-center ${
+                  isStartButtonEnabled() ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+              >
+                Start
+                <IoIosArrowForward className="text-2xl ml-[20px] text-white" />
+              </Button>
+            </div>
+          ) : (
+            <TermsAndCondition />
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -281,6 +299,7 @@ export default FinalSingleVisaPricess;
 //         >
 //           Cancel
 //         </button>
+
 //         {!showContent ? (
 //           <div>
 //             {/* Your initial content */}
