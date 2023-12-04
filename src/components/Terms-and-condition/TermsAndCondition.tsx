@@ -107,7 +107,7 @@ const TermsAndCondition = () => {
               onClick={handleDivClick1}
             >
               {isChecked1 ? (
-                <span className="text-red-500 font-bold mt-0">✔</span>
+                <span className="text-red-500 font-bold mt-1">✔</span>
               ) : (
                 <span></span>
               )}
@@ -136,7 +136,7 @@ const TermsAndCondition = () => {
           </p>
         </div>
         <div>
-        <div className="flex gap-6 xl:flex-row flex-col ml-0 xl:ml-[490px]">
+        <div className='flex gap-6 xl:flex-row flex-col ml-0 xl:ml-[490px]'>
         <button
           onClick={handleDialogToggle}
           className="border border-black px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
