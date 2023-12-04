@@ -81,7 +81,7 @@ const FinalSingleVisaPricess = ({
     }
   };
   const reset = () => {
-    window.location.replace;
+    window.location.reload();
   };
   return (
     <Dialog>
