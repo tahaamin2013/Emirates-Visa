@@ -107,9 +107,9 @@ const TermsAndCondition = () => {
               onClick={handleDivClick1}
             >
               {isChecked1 ? (
-                <span className="text-red-500 font-bold">&#10003;</span>
+                <span className="text-red-500 font-bold mt-0">✔</span>
               ) : (
-                <span>&nbsp;</span>
+                <span></span>
               )}
             </div>{" "}
             The decision to grant or refuse the visa(s) is the sole prerogative
@@ -121,9 +121,9 @@ const TermsAndCondition = () => {
               onClick={handleDivClick2}
             >
               {isChecked2 ? (
-                <span className="text-red-500 font-bold">&#10003;</span>
+                <span className="text-red-500 font-bold mt-0">✔</span>
               ) : (
-                <span>&nbsp;</span>
+                <span></span>
               )}
             </div>{" "}
             I hereby confirm that no active visa application is currently under
