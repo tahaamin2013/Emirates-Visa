@@ -212,7 +212,7 @@ const CountrySelection = () => {
 
       {showContent && (
         <div>
-          <div className="flex mt-14 mb-8 flex-col justify-center items-center">
+          <div className="flex mt-14 text-center mb-8 flex-col justify-center items-center">
             <h1 className="text-lg lg:text-2xl font-normal lg:font-medium">
               Choose from a range of UAE Visa options
             </h1>

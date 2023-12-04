@@ -106,12 +106,9 @@ const FinalSingleVisaPricess = ({
           <p className="text-sm mt-3 w-64">{description}</p>
         </div>
       </DialogTrigger>
-      <DialogContent className="max-w-max">
-        <DialogHeader>
-          <DialogTitle>
-            Please tell us where are you from and where do you live
-          </DialogTitle>
-          <DialogDescription>
+      <DialogContent className="w-full lg:h-fit h-full lg:max-w-max bg-[#efefef]">
+        <DialogHeader className="mt-4">
+          <DialogDescription className="text-lg text-center mb-8">
             Anyone who has this link will be able to view this.
           </DialogDescription>
         </DialogHeader>
@@ -183,9 +180,9 @@ const FinalSingleVisaPricess = ({
           </div>
         </form>
 
-        <DialogFooter className="sm:justify-start">
+        <DialogFooter className="sm:justify-end mt-20 flex gap-5">
           <DialogClose asChild>
-            <Button onClick={reset} type="button" variant="secondary">
+            <Button className="border bg-transparent rounded-none border-black/50 px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase" onClick={reset} type="button" variant="secondary">
               Cancel
             </Button>
           </DialogClose>
@@ -194,11 +191,11 @@ const FinalSingleVisaPricess = ({
               <Button
                 onClick={handleStartButtonClick}
                 disabled={!isStartButtonEnabled()}
-                className={`bg-[#e90000bb] hover:bg-[#e90000] text-white px-4 py-2 text-md font-light uppercase flex text-center ${
+                className={`bg-[#e90000] hover:bg-[#e90000] rounded-none w-full text-white text-md font-light uppercase flex text-center ${
                   isStartButtonEnabled() ? "" : "opacity-50 cursor-not-allowed"
                 }`}
               >
-                Start
+                <span className="ml-6">Start</span>
                 <IoIosArrowForward className="text-2xl ml-[20px] text-white" />
               </Button>
             </div>
