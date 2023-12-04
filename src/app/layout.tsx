@@ -31,7 +31,7 @@ export default function RootLayout({
       {/* <head>
       <link rel="icon" href="/fav-32.ico" sizes="any" />
       </head> */}
-      <body className={`${inter.className} m-0  bg-[#f5f5f5]`}>
+      <body className={`${inter.className} m-0 bg-[#f5f5f5]`}>
       <Navbar />
         {children}
         <Footer />

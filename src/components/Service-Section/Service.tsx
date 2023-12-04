@@ -12,7 +12,7 @@ const Service = ({
 }) => {
   return (
     <div
-      className={`bg-white w-[339px] h-[215px] lg:h-[215px] text-center align-middle flex flex-col items-center p-[35.2px] pt-[32px] pb-[43px] ${className}`}
+      className={`bg-white w-[290px] h-[220px] lg:h-[220px] text-center align-middle flex flex-col items-center p-[35.2px] pt-[32px] pb-[43px] ${className}`}
     >
 
       <p className="text-md text-gray-600 w-44">{title}</p>

@@ -136,7 +136,7 @@ const CountrySelection = () => {
     <>
       <form
         action=""
-        className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center items-center"
+        className="confirm flex p-5 flex-col md:flex-row gap-4 justify-center m-0 items-center"
       >
         <div className="selection flex-1 w-full md:max-w-[470px] bg-white p-2 py-4 shadow-md flex items-center">
           <Image

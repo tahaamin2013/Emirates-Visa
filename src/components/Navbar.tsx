@@ -41,7 +41,7 @@ const Navbar = () => {
             onClick={toggleMenu}
             className="text-3xl z-50 absolute right-0 top-6 cursor-pointer transition-all duration-300"
           >
-            <span className="text-3xl text-white mr-[60px]">
+            <span className="text-3xl text-white">
               {open ? (
                 <AiOutlineClose style={{ fontSize: '40px' }} />
               ) : (
