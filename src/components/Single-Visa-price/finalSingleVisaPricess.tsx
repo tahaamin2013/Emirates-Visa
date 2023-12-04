@@ -80,6 +80,9 @@ const FinalSingleVisaPricess = ({
       setShowContent(true);
     }
   };
+  const reset = () => {
+    window.location.replace;
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -182,7 +185,7 @@ const FinalSingleVisaPricess = ({
 
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
+            <Button onClick={reset} type="button" variant="secondary">
               Cancel
             </Button>
           </DialogClose>
