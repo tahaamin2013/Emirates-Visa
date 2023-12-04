@@ -24,7 +24,7 @@ const LiveTime = () => {
   }, []);
 
   return (
-    <div className="relative top-[-26px] left-6 md:left-[300px] lg:left-[470px] xl:left-[520px] rounded-full bg-white shadow-md py-4 px-5 border w-[320px] flex text-center">
+    <div className="relative bottom-6 rounded-full bg-white shadow-md py-4 px-5 border w-[320px] flex text-center">
       <Image src="/clock.svg" width={28} className="mr-5" height={28} alt="clock" />
       <span className="mt-[2px]">{currentTime}</span>
     </div>

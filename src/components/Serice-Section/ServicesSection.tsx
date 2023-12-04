@@ -3,7 +3,7 @@ import Service from "./Service";
 
 const ServicesSection = () => {
   return (
-    <>
+    
       <div className="flex flex-col justify-center items-center mt-14">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-lg lg:text-2xl font-normal lg:font-medium">
@@ -38,7 +38,7 @@ const ServicesSection = () => {
       </div>
 
       
-    </>
+    
   );
 };
 
