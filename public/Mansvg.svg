@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65">
+  <g id="Group_4271" data-name="Group 4271" transform="translate(-0.106 -0.794)">
+    <g id="Group_4206" data-name="Group 4206" transform="translate(-0.332 0.356)">
+      <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(0.438 0.438)" fill="#fff" stroke="#e90000" stroke-width="2">
+        <circle cx="32.5" cy="32.5" r="32.5" stroke="none"/>
+        <circle cx="32.5" cy="32.5" r="31.5" fill="none"/>
+      </g>
+      <g id="add-mentor-icon" transform="translate(16.834 17.685)">
+        <path id="path" d="M11.545,13.6v6.627L.5,25.307" transform="translate(-0.5 15.337)" fill="none" stroke="#e90000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path id="path-2" data-name="path" d="M13.4,17.5" transform="translate(15.096 20.052)" fill="none" stroke="#e90000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path id="path-3" data-name="path" d="M13.1,17.4" transform="translate(14.733 19.931)" fill="none" stroke="#e90000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path id="path-4" data-name="path" d="M11.3,13.6v9.243l9.826,2.465" transform="translate(12.557 15.337)" fill="none" stroke="#e90000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path id="path-5" data-name="path" d="M18.663,30.542a11.5,11.5,0,0,0,7.731-10.824V9.557A8.958,8.958,0,0,0,17.337.5H12.257A8.958,8.958,0,0,0,3.2,9.557V19.718a11.5,11.5,0,0,0,7.731,10.824" transform="translate(2.764 -0.5)" fill="none" stroke="#e90000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

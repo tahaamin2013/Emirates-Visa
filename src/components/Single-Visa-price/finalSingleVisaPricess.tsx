@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
+import TermsAndCondition from "../Terms-and-condition/TermsAndCondition";
 
 type Country = {
   name: {
@@ -196,7 +197,7 @@ const FinalSingleVisaPricess = ({
 
 
   <div className="flex gap-6 xl:flex-row flex-col mt-28 ml-0 xl:ml-[450px]">
-        <button
+  <button
           onClick={handleDialogToggle}
           className="border border-black px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
         >
@@ -218,11 +219,7 @@ const FinalSingleVisaPricess = ({
         </div>
         
       ) : (
-        <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
-          <div className="bg-[#efefef] rounded shadow-md p-6 xl:w-fit xl:h-fit w-full h-full">
-            fdsasasasasa
-          </div>
-        </div>
+        <TermsAndCondition />
       )}
       </div>
             </div>
