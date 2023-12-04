@@ -111,7 +111,7 @@ const TermsAndCondition = () => {
               ) : (
                 <span></span>
               )}
-            </div>{" "}
+            </div>
             The decision to grant or refuse the visa(s) is the sole prerogative
             and at the sole discretion of Government of UAE.
           </p>
@@ -125,9 +125,9 @@ const TermsAndCondition = () => {
               ) : (
                 <span></span>
               )}
-            </div>{" "}
+            </div>
             I hereby confirm that no active visa application is currently under
-            processing by another agent. This could lead to a none <br />{" "}
+            processing by another agent. This could lead to a none <br />
             refundable rejection of my visa application.
           </p>
           <p className="text-left text-sm flex gap-3">
