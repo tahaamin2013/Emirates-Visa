@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import Step1 from '../Steps-Section/Step1';
 
 const TermsAndCondition = () => {
   const [isChecked1, setIsChecked1] = useState(false);
@@ -164,9 +165,8 @@ const TermsAndCondition = () => {
             Start <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
           </button>
           {showParagraph && (
-            <p className="mt-4 text-sm text-gray-700">
-              This is the paragraph that appears when the Start button is clicked.
-            </p>
+              <Step1 />
+
           )}
         </div>
         </div>
