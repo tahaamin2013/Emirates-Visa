@@ -5,8 +5,7 @@ const Step1 = () => {
         window.location.reload(); // Refresh the page
       };
   return (
-    <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
-      <div className="bg-[#efefef] rounded shadow-md p-6 w-full h-full">
+    <div>
         <div className=" flex justify-between flex-col xl:flex-row text-center">
           <h1 className="text-[#e90000] text-xl">MAIN APPLICANT</h1>
           <div>
@@ -38,8 +37,7 @@ const Step1 = () => {
         </button>
        </div>
       </div>
-    </div>
-  );
+      );
 };
 
 export default Step1;

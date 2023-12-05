@@ -321,25 +321,75 @@ const FinalSingleVisaPricess = ({
 
               <DialogFooter className=" mt-0 xl:-mt-11">
                 <div>
-                  <div className="flex gap-6 xl:flex-row flex-col ml-0 xl:ml-[490px]">
+                  <div className="flex gap-6 xl:flex-row flex-col">
                     <button
                       onClick={handleDialogToggle2}
                       className="border border-black px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
                     >
                       Cancel
                     </button>
-                    <button
-                      onClick={handleStartButtonClick}
-                      className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
-                        isStartButtonEnabled2()
-                          ? ""
-                          : "opacity-50 cursor-not-allowed"
-                      }`}
-                      disabled={!isStartButtonEnabled2()}
-                    >
-                      Start
-                      <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
-                    </button>
+                    <Dialog>
+                      <DialogTrigger>
+                        <button
+                          onClick={handleStartButtonClick}
+                          className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+                            isStartButtonEnabled2()
+                              ? ""
+                              : "opacity-50 cursor-not-allowed"
+                          }`}
+                          disabled={!isStartButtonEnabled2()}
+                        >
+                          Start{" "}
+                          <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="h-full text-center  max-w-screen-2xl">
+                        <DialogHeader>header</DialogHeader>
+                        <div>
+                          <div className=" flex justify-between flex-col xl:flex-row ">
+                            <h1 className="text-[#e90000] text-xl">
+                              MAIN APPLICANT
+                            </h1>
+                            <div>
+                              Order Total:{" "}
+                              <span className="text-xl font-bold">280 USD</span>
+                            </div>
+                          </div>
+
+                          <div>
+                            <p className=" mt-16 text-xl">
+                              Please Upload the Following Documents
+                            </p>
+                            <div className="flex mt-10 text-sm  justify-between xl:flex-row flex-col px-0 xl:px-80">
+                              <div>
+                                Accepted Formats:{" "}
+                                <span className="text-[#e90000]">
+                                  PDF, JPG or PNG
+                                </span>
+                              </div>
+                              <div>
+                                Maximum File Size:{" "}
+                                <span className="text-[#e90000]">
+                                  4 MB per upload
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className=" mt-12">
+                            <button
+                              onClick={handleDialogToggle}
+                              className="border border-black px-12 text-md font-light py-2 duration-600 transition-all hover:bg-[#E6E6E6] uppercase"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                        <DialogFooter>
+                          
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </div>
               </DialogFooter>
