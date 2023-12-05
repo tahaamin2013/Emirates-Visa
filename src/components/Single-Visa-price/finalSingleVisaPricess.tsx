@@ -49,7 +49,7 @@ const FinalSingleVisaPricess = ({
   const handleDialogToggle2 = () => {
     setIsChecked1(false);
     setIsChecked2(false);
-    window.location.reload();isChecked2 
+    window.location.reload();
   };
 
   const handleDivClick1 = () => {
@@ -87,6 +87,9 @@ const FinalSingleVisaPricess = ({
   };
 
   const isStartButtonEnabled = () => {
+    return selectedCountry1 !== "" && selectedCountry2 !== "";
+  };
+  const isStartButtonEnabled2 = () => {
     return isChecked1 && isChecked2;
   };
 
@@ -328,11 +331,11 @@ const FinalSingleVisaPricess = ({
                     <button
                       onClick={handleStartButtonClick}
                       className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
-                        isStartButtonEnabled()
+                        isStartButtonEnabled2()
                           ? ""
                           : "opacity-50 cursor-not-allowed"
                       }`}
-                      disabled={!isStartButtonEnabled()}
+                      disabled={!isStartButtonEnabled2()}
                     >
                       Start
                       <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
