@@ -1,7 +1,3 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { FaCheck } from "react-icons/fa6";
-import { IoIosArrowForward } from "react-icons/io";
-import TermsAndCondition from "../Terms-and-condition/TermsAndCondition";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -13,6 +9,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { ChangeEvent, useEffect, useState } from "react";
+import { FaCheck } from "react-icons/fa6";
+import { IoIosArrowForward } from "react-icons/io";
+import Step1 from "../Steps-Section/Step1";
+import Image from "next/image";
+import Steps from "../Terms-and-condition/Steps";
 
 type Country = {
   name: {
@@ -39,10 +41,26 @@ const FinalSingleVisaPricess = ({
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [countries, setCountries] = useState<Country[]>([]);
   const [selectedCountry1, setSelectedCountry1] = useState<string>("");
-  const [isSelected, setIsSelected] = useState(false);
   const [selectedCountry2, setSelectedCountry2] = useState<string>("");
-  const [showParagraph, setShowParagraph] = useState(false);
+  const [showPreviousContent, setShowPreviousContent] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const [isChecked1, setIsChecked1] = useState(false);
+  const [isChecked2, setIsChecked2] = useState(false);
+  const [showParagraph] = useState(false); //
+
+  const handleDialogToggle2 = () => {
+    setIsChecked1(false); // Reset checkbox 1
+    setIsChecked2(false); // Reset checkbox 2
+    window.location.reload(); // Refresh the page
+  };
+
+  const handleDivClick1 = () => {
+    setIsChecked1(!isChecked1);
+  };
+
+  const handleDivClick2 = () => {
+    setIsChecked2(!isChecked2);
+  };
 
   const handleDialogToggle = () => {
     setIsDialogOpen(!isDialogOpen);
@@ -76,13 +94,14 @@ const FinalSingleVisaPricess = ({
 
   const handleStartButtonClick = () => {
     if (isStartButtonEnabled()) {
-      // Show content when the button is clicked
+      setShowPreviousContent(false);
       setShowContent(true);
     }
   };
   const reset = () => {
     window.location.reload();
   };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -106,6 +125,7 @@ const FinalSingleVisaPricess = ({
           <p className="text-sm mt-3 w-64">{description}</p>
         </div>
       </DialogTrigger>
+
       <DialogContent className="w-full lg:h-fit h-full lg:max-w-max bg-[#efefef]">
         <DialogHeader className="mt-4">
           <DialogDescription className="text-lg text-center mb-8">
@@ -182,26 +202,150 @@ const FinalSingleVisaPricess = ({
 
         <DialogFooter className="sm:justify-end mt-20 flex gap-5">
           <DialogClose asChild>
-            <Button className="border bg-transparent rounded-none border-black/50 px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase" onClick={reset} type="button" variant="secondary">
+            <Button
+              className="border bg-transparent rounded-none border-black/50 px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
+              onClick={reset}
+              type="button"
+              variant="secondary"
+            >
               Cancel
             </Button>
           </DialogClose>
-          {!showContent ? (
-            <div>
-              <Button
-                onClick={handleStartButtonClick}
-                disabled={!isStartButtonEnabled()}
-                className={`bg-[#e90000] hover:bg-[#e90000] rounded-none w-full text-white text-md font-light uppercase flex text-center ${
-                  isStartButtonEnabled() ? "" : "opacity-50 cursor-not-allowed"
-                }`}
-              >
-                <span className="ml-6">Start</span>
-                <IoIosArrowForward className="text-2xl ml-[20px] text-white" />
-              </Button>
-            </div>
-          ) : (
-            <TermsAndCondition />
-          )}
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="sm:justify-end">
+                <Button
+                  onClick={handleStartButtonClick}
+                  disabled={!isStartButtonEnabled()}
+                  className={`bg-[#e90000] hover:bg-[#e90000] rounded-none w-full text-white text-md font-light uppercase flex text-center ${
+                    isStartButtonEnabled()
+                      ? ""
+                      : "opacity-50 cursor-not-allowed"
+                  }`}
+                >
+                  <span className="ml-6">Start</span>
+                  <IoIosArrowForward className="text-2xl ml-[20px] text-white" />
+                </Button>
+              </div>
+            </DialogTrigger>
+
+            <DialogContent className="w-full lg:h-fit h-full lg:max-w-max bg-[#efefef] overflow-y-auto">
+              <DialogHeader className="mt-7">
+                <DialogTitle className="text-center text-xl">
+                  Let(s) get your Visa(s)
+                </DialogTitle>
+                <DialogDescription className="text-center text-lg">
+                  What(s) required to make this application?
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className=" flex flex-col lg:flex-row gap-5 mb-9 mt-9">
+                <Steps
+                  image="/id-Card.svg"
+                  width={40}
+                  height={40}
+                  title="Valid Passport"
+                  description="Clear passport scan or picture with minimum of 6 months
+                  validity."
+                  className=""
+                />
+                <Steps
+                  image="/Mansvg.svg"
+                  width={56}
+                  height={56}
+                  title="Picture /
+                  Headshot"
+                  description="Clear passport style color photo or a selfie with white background."
+                  className=""
+                />
+                <Steps
+                  image="/linessvg.svg"
+                  width={60}
+                  height={60}
+                  title="Personal
+                  Details"
+                  description="Name and contact details so we can facilitate your application."
+                  className=" mt-4"
+                />
+                <Steps
+                  image="/nationality.svg"
+                  width={60}
+                  height={60}
+                  title="Additional
+                  Documents"
+                  description="In some cases additional documents may be required."
+                  className=" my-2"
+                />
+              </div>
+
+              <p className="text-left text-sm mb-4">
+                Please confirm that you have read and agreed to the following:
+              </p>
+
+              <div className="flex flex-col text-black/80 gap-4">
+                <p className="text-left text-sm flex gap-4">
+                  <div
+                    className={`w-14 xl:w-6 h-6 border-2 border-red-500  flex justify-center rounded cursor-pointer`}
+                    onClick={handleDivClick1}
+                  >
+                    {isChecked1 ? (
+                      <span className="text-red-500 font-bold mt-0 ">✔</span>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
+                  The decision to grant or refuse the visa(s) is the sole
+                  prerogative and at the sole discretion of Government of UAE.
+                </p>
+                <p className="text-left text-sm flex gap-3">
+                  <div
+                    className={`w-14 xl:w-6 h-6 border-2 border-red-500 flex items-center justify-center rounded cursor-pointer`}
+                    onClick={handleDivClick2}
+                  >
+                    {isChecked2 ? (
+                      <span className="text-red-500 font-bold mt-0">✔</span>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
+                  I hereby confirm that no active visa application is currently
+                  under processing by another agent. This could lead to a none{" "}
+                  <br />
+                  refundable rejection of my visa application.
+                </p>
+                <p className="text-left text-sm flex gap-3">
+                  <Image src="/Alert.svg" alt="Alert" width={30} height={30} />{" "}
+                  You may order up to 9 Visas in <br /> the same application.
+                </p>
+              </div>
+
+              <DialogFooter className=" mt-0 xl:-mt-11">
+                <div>
+                  <div className="flex gap-6 xl:flex-row flex-col ml-0 xl:ml-[490px]">
+                    <button
+                      onClick={handleDialogToggle2}
+                      className="border border-black px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleStartButtonClick}
+                      className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+                        isStartButtonEnabled()
+                          ? ""
+                          : "opacity-50 cursor-not-allowed"
+                      }`}
+                      disabled={!isStartButtonEnabled()}
+                    >
+                      Start
+                      <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
+                    </button>
+                    {showParagraph && <Step1 />}
+                  </div>
+                </div>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -209,118 +353,3 @@ const FinalSingleVisaPricess = ({
 };
 
 export default FinalSingleVisaPricess;
-
-// {isDialogOpen && (
-//   <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center">
-//     <div className="bg-[#efefef] rounded shadow-md p-6 xl:w-fit xl:h-fit w-full h-full">
-//       {/* Dialog Content */}
-//       <h2 className="text-center text-black/70 mb-10">
-//         Please tell us where you are from and where you live
-//       </h2>
-
-//       <form className="flex flex-col md:flex-row gap-4 -mb-14">
-//         {/* Country 1 Selection */}
-//         <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-//           <img
-//             className={`flag w-11 h-11 ${
-//               selectedCountry1 ? "rounded-full" : "rounded-none"
-//             } mr-2`}
-//             src={
-//               selectedCountry1 === ""
-//                 ? "nationality.svg"
-//                 : countries.find(
-//                     (c) => c.name.common === selectedCountry1
-//                   )?.flags.png || "nationality.svg"
-//             }
-//             alt="Flag"
-//           />
-//           <select
-//             id="countrySelect1"
-//             className="select flex-grow outline-none bg-transparent border-none w-full lg:w-[300px]"
-//             placeholder="Select a country"
-//             value={selectedCountry1}
-//             onChange={handleCountry1Change}
-//           >
-//             <option value="" disabled selected>
-//               Select country
-//             </option>
-//             {countries.map((country) => (
-//               <option
-//                 key={country.name.common}
-//                 value={country.name.common}
-//               >
-//                 {country.name.common}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         {/* Country 2 Selection */}
-//         <div className="selection w-full bg-white p-5 shadow-md flex items-center">
-//           <img
-//             className={`flag w-11 h-11 ${
-//               selectedCountry2 ? "rounded-full" : "rounded-none"
-//             } mr-2`}
-//             src={
-//               selectedCountry2 === ""
-//                 ? "country.svg"
-//                 : countries.find(
-//                     (c) => c.name.common === selectedCountry2
-//                   )?.flags.png || "nationality.svg"
-//             }
-//             alt="Flag"
-//           />
-//           <select
-//             id="countrySelect2"
-//             className="select flex-grow bg-transparent outline-none border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
-//             placeholder="Select a country"
-//             value={selectedCountry2}
-//             onChange={handleCountry2Change}
-//           >
-//             <option value="" disabled selected>
-//               Select country
-//             </option>
-//             {countries.map((country) => (
-//               <option
-//                 key={country.name.common}
-//                 value={country.name.common}
-//               >
-//                 {country.name.common}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-//       </form>
-
-//       <div className="flex gap-6 xl:flex-row flex-col mt-28 ml-0 xl:ml-[450px]">
-//         <button
-//           onClick={handleDialogToggle}
-//           className="border border-black px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
-//         >
-//           Cancel
-//         </button>
-
-//         {!showContent ? (
-//           <div>
-//             {/* Your initial content */}
-//             {/* ... (your existing content) */}
-//             <button
-//               onClick={handleStartButtonClick}
-//               className={`bg-[#e90000] text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
-//                 isStartButtonEnabled()
-//                   ? ""
-//                   : "opacity-50 cursor-not-allowed"
-//               }`}
-//               disabled={!isStartButtonEnabled()}
-//             >
-//               Start{" "}
-//               <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
-//             </button>
-//           </div>
-//         ) : (
-//           <TermsAndCondition />
-//         )}
-//       </div>
-//     </div>
-//   </div>
-// )}
