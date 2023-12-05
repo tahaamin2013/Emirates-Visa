@@ -46,23 +46,31 @@ const FinalSingleVisaPricess = ({
   const [showContent, setShowContent] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const fileInputRef = React.createRef();
+  const [selectedFile, setSelectedFile] = useState<string | ArrayBuffer | null>(null);
+  const fileInputRef = React.createRef<HTMLInputElement>();
 
-  const handleFileChange = (event: any) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; // Use optional chaining to access files safely
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setSelectedFile(reader.result);
+        const result = reader.result;
+        if (typeof result === 'string' || result instanceof ArrayBuffer) {
+          setSelectedFile(result as string | ArrayBuffer);
+        }
       };
       reader.readAsDataURL(file);
     }
   };
+  
+  
 
   const handleCustomFileClick = () => {
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
+  
 
   const handleDialogToggle2 = () => {
     setIsChecked1(false);
@@ -115,6 +123,7 @@ const FinalSingleVisaPricess = ({
   const isStartButtonEnabled2 = () => {
     return isChecked1 && isChecked2;
   };
+
 
   const handleStartButtonClick = () => {
     if (isStartButtonEnabled()) {
@@ -410,21 +419,27 @@ const FinalSingleVisaPricess = ({
       <label  onClick={handleCustomFileClick} htmlFor="fileInput" className="bg-white p-3">
       
       {selectedFile && (
-                                <div>
-                                  <p>Selected Image:</p>
-                                  <img
-                                    src={selectedFile}
-                                    alt="Selected"
-                                    style={{
-                                      maxWidth: "100%",
-                                      maxHeight: "300px",
-                                    }}
-                                  />
-                                </div>
-                              )}
-                              FSDA
-</label>
-
+        <div>
+          <img
+            src={selectedFile as string}
+            alt="Selected"
+            style={{
+              maxWidth: "100%",
+              maxHeight: "300px",
+            }}
+          />
+        </div>
+      )}
+      Click here to upload
+    </label>
+    <input
+      id="fileInput"
+      type="file"
+      accept=".jpg,.png" // Limit accepted file types
+      onChange={handleFileChange}
+      style={{ display: 'none' }} // Hide default file input
+      ref={fileInputRef}
+    />
 
                               <div className="bg-white p-9">dsfa</div>
                               <div className="bg-white p-9">dsfa</div>
