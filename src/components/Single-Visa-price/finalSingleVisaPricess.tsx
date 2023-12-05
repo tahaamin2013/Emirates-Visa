@@ -12,7 +12,6 @@ import {
 import { ChangeEvent, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-import Step1 from "../Steps-Section/Step1";
 import Image from "next/image";
 import Steps from "../Terms-and-condition/Steps";
 
@@ -46,12 +45,11 @@ const FinalSingleVisaPricess = ({
   const [showContent, setShowContent] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [showParagraph] = useState(false); //
 
   const handleDialogToggle2 = () => {
-    setIsChecked1(false); // Reset checkbox 1
-    setIsChecked2(false); // Reset checkbox 2
-    window.location.reload(); // Refresh the page
+    setIsChecked1(false);
+    setIsChecked2(false);
+    window.location.reload();isChecked2 
   };
 
   const handleDivClick1 = () => {
@@ -89,7 +87,7 @@ const FinalSingleVisaPricess = ({
   };
 
   const isStartButtonEnabled = () => {
-    return selectedCountry1 !== "" && selectedCountry2 !== "";
+    return isChecked1 && isChecked2;
   };
 
   const handleStartButtonClick = () => {
@@ -166,7 +164,6 @@ const FinalSingleVisaPricess = ({
               ))}
             </select>
           </div>
-
           {/* Country 2 Selection */}
           <div className="selection w-full bg-white p-5 shadow-md flex items-center">
             <img
@@ -183,7 +180,7 @@ const FinalSingleVisaPricess = ({
             />
             <select
               id="countrySelect2"
-              className="select flex-grow bg-transparent outline-none border-none w-full lg:w-[300px]" // Added flex-grow to expand the select element
+              className="select flex-grow bg-transparent outline-none border-none w-full lg:w-[300px]"
               placeholder="Select a country"
               value={selectedCountry2}
               onChange={handleCountry2Change}
@@ -340,7 +337,6 @@ const FinalSingleVisaPricess = ({
                       Start
                       <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
                     </button>
-                    {showParagraph && <Step1 />}
                   </div>
                 </div>
               </DialogFooter>
