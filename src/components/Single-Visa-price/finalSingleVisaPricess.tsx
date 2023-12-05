@@ -45,10 +45,26 @@ const FinalSingleVisaPricess = ({
   const [showContent, setShowContent] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleDialogToggle2 = () => {
     setIsChecked1(false);
     setIsChecked2(false);
+    window.location.reload();
+  };
+
+  const handleFileChange = (event: any) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedFile(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const close = () => {
     window.location.reload();
   };
 
@@ -343,7 +359,7 @@ const FinalSingleVisaPricess = ({
                           <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
                         </button>
                       </DialogTrigger>
-                      <DialogContent className="h-full text-center  max-w-screen-2xl">
+                      <DialogContent className="h-full text-center  max-w-screen-2xl bg-[#f5f5f5]">
                         <DialogHeader>header</DialogHeader>
                         <div>
                           <div className=" flex justify-between flex-col xl:flex-row ">
@@ -352,7 +368,7 @@ const FinalSingleVisaPricess = ({
                             </h1>
                             <div>
                               Order Total:{" "}
-                              <span className="text-xl font-bold">280 USD</span>
+                              <span className="text-xl font-bold">180 USD</span>
                             </div>
                           </div>
 
@@ -374,20 +390,49 @@ const FinalSingleVisaPricess = ({
                                 </span>
                               </div>
                             </div>
+                            <div className="flex flex-col xl:flex-row justify-center gap-5 mt-6">
+                              <div className="bg-white p-9">dsfa</div>
+                              <input
+                                type="file"
+                                accept=".pdf,.jpg,.png" // Limit accepted file types
+                                onChange={handleFileChange}
+                              />
+                              {selectedFile && (
+                                <div>
+                                  <p>Selected Image:</p>
+                                  <img
+                                    src={selectedFile}
+                                    alt="Selected"
+                                    style={{
+                                      maxWidth: "100%",
+                                      maxHeight: "300px",
+                                    }}
+                                  />
+                                </div>
+                              )}
+
+                              <div className="bg-white p-9">dsfa</div>
+                              <div className="bg-white p-9">dsfa</div>
+                            </div>
                           </div>
 
-                          <div className=" mt-12">
+                          <div className=" mt-12 flex flex-col xl:flex-row gap-4 justify-center">
                             <button
-                              onClick={handleDialogToggle}
+                              onClick={close}
                               className="border border-black px-12 text-md font-light py-2 duration-600 transition-all hover:bg-[#E6E6E6] uppercase"
                             >
                               Cancel
                             </button>
+                            <button
+                              onClick={handleStartButtonClick}
+                              className="bg-[#e90000]  text-white pl-44 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center"
+                            >
+                              Details{" "}
+                              <IoIosArrowForward className="text-2xl ml-[100px] xl:ml-8 text-white" />
+                            </button>
                           </div>
                         </div>
-                        <DialogFooter>
-                          
-                        </DialogFooter>
+                        <DialogFooter></DialogFooter>
                       </DialogContent>
                     </Dialog>
                   </div>
