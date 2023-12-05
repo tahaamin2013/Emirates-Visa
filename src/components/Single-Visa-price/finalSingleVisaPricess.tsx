@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
@@ -46,12 +46,7 @@ const FinalSingleVisaPricess = ({
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleDialogToggle2 = () => {
-    setIsChecked1(false);
-    setIsChecked2(false);
-    window.location.reload();
-  };
+  const fileInputRef = React.createRef();
 
   const handleFileChange = (event: any) => {
     const file = event.target.files[0];
@@ -63,6 +58,17 @@ const FinalSingleVisaPricess = ({
       reader.readAsDataURL(file);
     }
   };
+
+  const handleCustomFileClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleDialogToggle2 = () => {
+    setIsChecked1(false);
+    setIsChecked2(false);
+    window.location.reload();
+  };
+
 
   const close = () => {
     window.location.reload();
@@ -391,13 +397,16 @@ const FinalSingleVisaPricess = ({
                               </div>
                             </div>
                             <div className="flex flex-col xl:flex-row justify-center gap-5 mt-6">
-                              <div className="bg-white p-9">dsfa</div>
+                              <div className="bg-white p-3">dsfa</div>
                               <input
-                                type="file"
-                                accept=".pdf,.jpg,.png" // Limit accepted file types
-                                onChange={handleFileChange}
-                              />
-                              {selectedFile && (
+        type="file"
+        accept=".jpg,.png" // Limit accepted file types
+        onChange={handleFileChange}
+        style={{ display: 'none' }} // Hide default file input
+        ref={fileInputRef}
+      />
+      <label  onClick={handleCustomFileClick} htmlFor="fileInput" className="bg-white p-3">
+      {selectedFile && (
                                 <div>
                                   <p>Selected Image:</p>
                                   <img
@@ -410,6 +419,9 @@ const FinalSingleVisaPricess = ({
                                   />
                                 </div>
                               )}
+                              FSDA
+</label>
+
 
                               <div className="bg-white p-9">dsfa</div>
                               <div className="bg-white p-9">dsfa</div>
