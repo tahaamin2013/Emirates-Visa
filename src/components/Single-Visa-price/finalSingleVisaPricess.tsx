@@ -24,6 +24,7 @@ type Country = {
   };
 };
 
+
 const FinalSingleVisaPricess = ({
   Days,
   Single,
@@ -238,12 +239,13 @@ const FinalSingleVisaPricess = ({
               <div className="sm:justify-end">
                 <Button
                   onClick={handleStartButtonClick}
-                  disabled={!isStartButtonEnabled()}
+
                   className={`bg-[#e90000] hover:bg-[#e90000] rounded-none w-full text-white text-md font-light uppercase flex text-center ${
                     isStartButtonEnabled()
                       ? ""
                       : "opacity-50 cursor-not-allowed"
                   }`}
+                  disabled={!isStartButtonEnabled()}
                 >
                   <span className="ml-6">Start</span>
                   <IoIosArrowForward className="text-2xl ml-[20px] text-white" />
@@ -361,7 +363,7 @@ const FinalSingleVisaPricess = ({
                           }`}
                           disabled={!isStartButtonEnabled2()}
                         >
-                          Start{" "}
+                          Start
                           <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
                         </button>
                       </DialogTrigger>
@@ -406,6 +408,7 @@ const FinalSingleVisaPricess = ({
         ref={fileInputRef}
       />
       <label  onClick={handleCustomFileClick} htmlFor="fileInput" className="bg-white p-3">
+      
       {selectedFile && (
                                 <div>
                                   <p>Selected Image:</p>
