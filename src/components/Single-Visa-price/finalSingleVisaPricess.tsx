@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import {
   Dialog,
   DialogClose,
@@ -10,14 +9,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa6";
-import { AiOutlineDelete } from "react-icons/ai"; // Import the delete icon
 import { IoIosArrowForward } from "react-icons/io";
+import Image from "next/image";
 import Steps from "../Terms-and-condition/Steps";
-import { Download } from "lucide-react";
-import Fileuploader from "./Fileuploader";
+import { MdOutlineFileUpload } from "react-icons/md";
+
 
 type Country = {
   name: {
@@ -49,32 +47,83 @@ const FinalSingleVisaPricess = ({
   const [showContent, setShowContent] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0); // Track upload progress
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<string | ArrayBuffer | null>(
+    null
+  );
+  const [selectedFile1, setSelectedFile1] = useState<File | null>(null);
+  const [selectedFile2, setSelectedFile2] = useState<
+    string | ArrayBuffer | null
+  >(null);
+  const [selectedFile3, setSelectedFile3] = useState<
+    string | ArrayBuffer | null
+  >(null);
 
-  // const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     setIsLoading(true);
-  //     setSelectedFile(file); // Set the selected file
+  const fileInputRef = React.createRef<HTMLInputElement>();
+  const fileInputRef2 = React.createRef<HTMLInputElement>();
+  const fileInputRef3 = React.createRef<HTMLInputElement>();
 
-  //     const interval = setInterval(() => {
-  //       setUploadProgress((prevProgress) => {
-  //         if (prevProgress < 100) {
-  //           return prevProgress + 10;
-  //         }
-  //         clearInterval(interval);
-  //         setIsLoading(false);
-  //         return prevProgress;
-  //       });
-  //     }, 500);
-  //   }
-  // };
+
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedFile1(file);
+    }
+  };
+
+  const handleFileChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; // Use optional chaining to access files safely
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        if (typeof result === "string" || result instanceof ArrayBuffer) {
+          setSelectedFile2(result as string | ArrayBuffer);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleFileChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; // Use optional chaining to access files safely
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        if (typeof result === "string" || result instanceof ArrayBuffer) {
+          setSelectedFile3(result as string | ArrayBuffer);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleCustomFileClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleCustomFileClick2 = () => {
+    if (fileInputRef2.current) {
+      fileInputRef2.current.click();
+    }
+  };
+
+  const handleCustomFileClick3 = () => {
+    if (fileInputRef3.current) {
+      fileInputRef3.current.click();
+    }
+  };  
 
   const handleDialogToggle2 = () => {
     setIsChecked1(false);
     setIsChecked2(false);
+    window.location.reload();
+  };
+
+  const close = () => {
     window.location.reload();
   };
 
@@ -225,6 +274,7 @@ const FinalSingleVisaPricess = ({
             </select>
           </div>
         </form>
+
         <DialogFooter className="sm:justify-end mt-20 flex gap-5">
           <DialogClose asChild>
             <Button
@@ -236,7 +286,6 @@ const FinalSingleVisaPricess = ({
               Cancel
             </Button>
           </DialogClose>
-
           <Dialog>
             <DialogTrigger asChild>
               <div className="sm:justify-end">
@@ -354,12 +403,11 @@ const FinalSingleVisaPricess = ({
                     >
                       Cancel
                     </button>
-
                     <Dialog>
                       <DialogTrigger>
                         <button
                           onClick={handleStartButtonClick}
-                          className={`bg-[#e90000] text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+                          className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
                             isStartButtonEnabled2()
                               ? ""
                               : "opacity-50 cursor-not-allowed"
@@ -370,88 +418,147 @@ const FinalSingleVisaPricess = ({
                           <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
                         </button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-full h-full">
+                      <DialogContent className="h-full text-center  max-w-screen-2xl bg-[#f5f5f5]">
                         <DialogHeader>header</DialogHeader>
-                        <div className=" flex items-center flex-col">
-                          {/* Top Section with Price */}
-                          <div className="flex w-full flex-col justify-between items-center sm:flex-row">
+                        <div>
+                          <div className=" flex justify-between flex-col xl:flex-row ">
                             <h1 className="text-[#e90000] text-xl">
                               MAIN APPLICANT
                             </h1>
-                            <div className="flex flex-row gap-1 items-center">
-                              <p>Order Total:</p>{" "}
-                              <h3 className="text-xl font-bold">180 USD</h3>
+                            <div>
+                              Order Total:{" "}
+                              <span className="text-xl font-bold">180 USD</span>
                             </div>
                           </div>
 
-                          {/* Uploading state */}
-                          <div className="flex items-center flex-col">
-                            <p className="mt-16 text-center  text-lg lg:text-xl">
+                          <div>
+                            <p className=" mt-16 text-xl">
                               Please Upload the Following Documents
                             </p>
-
-                            <div className="gap-12 flex w-full md:flex-row flex-col md: items-center justify-between">
-                              <p className="text-sm flex gap-1">
-                                Accepted Formats:
+                            <div className="flex mt-10 text-sm  justify-between xl:flex-row flex-col px-0 xl:px-80">
+                              <div>
+                                Accepted Formats:{" "}
                                 <span className="text-[#e90000]">
                                   PDF, JPG or PNG
                                 </span>
-                              </p>
-                              <p className="text-sm flex gap-1">
-                                Maximum File Size:
+                              </div>
+                              <div>
+                                Maximum File Size:{" "}
                                 <span className="text-[#e90000]">
                                   4 MB per upload
                                 </span>
-                              </p>
+                              </div>
                             </div>
-
                             <div className="flex flex-col xl:flex-row justify-center gap-5 mt-6">
-                              <Fileuploader />
-                              {/* <div className="bg-white border hover:shadow-xl transition-all p-5 flex items-center flex-col">
-                                Passport
-                                <label htmlFor="file-upload">
-                                  <div className="custom-file-upload relative">
-                                    <input
-                                      id="file-upload"
-                                      type="file"
-                                      onChange={handleFileChange}
-                                      accept="image/*"
-                                      // maxSize={4 * 1024 * 1024}
-                                      style={{ display: "none" }}
+                              <input
+                                type="file"
+                                accept=".jpg,.png" // Limit accepted file types
+                                onChange={handleFileChange}
+                                style={{ display: "none" }} // Hide default file input
+                                ref={fileInputRef}
+                              />
+                              <label
+                                onClick={handleCustomFileClick}
+                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
+                              >
+                              {selectedFile1 ? (
+                                <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
+                                  <p>{selectedFile1.name}</p>
+                                </div>
+                                  
+                                ):
+                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                    <img
+                                      src='/nationality.svg'
+                                      alt="Selected Image"
                                     />
-                                    {isLoading ? (
-                                      <div className="status">
-                                        <svg
-                                          aria-hidden="true"
-                                          className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-                                          viewBox="0 0 100 101"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                            fill="currentColor"
-                                          />
-                                          <path
-                                            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                            fill="currentFill"
-                                          />
-                                        </svg>
-                                      </div>
-                                    ) : (
-                                      <div className="flex text-red-500 items-center justify-center">
-                                        <Download />
-                                      </div>
-                                    )}
                                   </div>
-                                </label>
-                                {selectedFile && !isLoading && (
-                                  <p>Selected file: {selectedFile.name}</p>
-                                )}
-                              </div> */}
+                                }
+                              <p>Passport</p>
+                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                              </label>
+
+                              <input
+                                type="file"
+                                accept=".jpg,.png" // Limit accepted file types
+                                onChange={handleFileChange2}
+                                style={{ display: "none" }} // Hide default file input
+                                ref={fileInputRef2}
+                              />
+                              <label
+                                onClick={handleCustomFileClick2}
+                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
+                              >
+                                {selectedFile2 ? (
+                                  <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
+                                    <img
+                                      src={selectedFile2 as string}
+                                      alt="Selected Image"
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                ):
+                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                    <img
+                                      src='/Mansvg.svg'
+                                      alt="Selected Image"
+                                    />
+                                  </div>
+                                }
+                              <p>Photograph</p>
+                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                              </label>
+
+                              <input
+                                type="file"
+                                accept=".jpg,.png" // Limit accepted file types
+                                onChange={handleFileChange3}
+                                style={{ display: "none" }} // Hide default file input
+                                ref={fileInputRef3}
+                              />
+                              <label
+                                onClick={handleCustomFileClick3}
+                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
+                              >
+                                {selectedFile3 ? (
+                                  <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
+                                    <img
+                                      src={selectedFile3 as string}
+                                      alt="Selected Image"
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                ):
+                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                    <img
+                                      src='/nationality.svg'
+                                      alt="Selected Image"
+                                    />
+                                  </div>
+                                }
+                              <p>National ID</p>
+                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                              </label>
                             </div>
                           </div>
+
+                          <div className=" mt-12 flex flex-col xl:flex-row gap-4 justify-center">
+                            <button
+                              onClick={close}
+                              className="border border-black px-12 text-md font-light py-2 duration-600 transition-all hover:bg-[#E6E6E6] uppercase"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={handleStartButtonClick}
+                              className="bg-[#e90000]  text-white pl-44 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center"
+                            >
+                              Details{" "}
+                              <IoIosArrowForward className="text-2xl ml-[100px] xl:ml-8 text-white" />
+                            </button>
+                          </div>
                         </div>
+                        <DialogFooter></DialogFooter>
                       </DialogContent>
                     </Dialog>
                   </div>
