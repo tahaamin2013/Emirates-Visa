@@ -171,7 +171,7 @@ const FinalSingleVisaPricess = ({
   const onDeleteImage = () => {
     setSelectedFile1(null); // Reset the selected file state to null
   };
-  
+
   const onDeleteImage2 = () => {
     setSelectedFile2(null); // Reset the selected file state to null
   };
@@ -185,9 +185,10 @@ const FinalSingleVisaPricess = ({
   };
 
   const areAllImagesUploaded = () => {
-    return selectedFile1 !== null && selectedFile2 !== null && selectedFile3 !== null;
+    return (
+      selectedFile1 !== null && selectedFile2 !== null && selectedFile3 !== null
+    );
   };
-  
 
   return (
     <Dialog>
@@ -434,7 +435,7 @@ const FinalSingleVisaPricess = ({
                           <hr></hr>
                         </DialogHeader>
                         <div>
-                          <div className=" flex justify-between flex-col xl:flex-row ">
+                          <div className=" flex justify-center xl:justify-between w-full flex-wrap ">
                             <h1 className="text-[#e90000] text-xl">
                               MAIN APPLICANT
                             </h1>
@@ -462,7 +463,7 @@ const FinalSingleVisaPricess = ({
                                 </span>
                               </div>
                             </div>
-                            <div className="flex flex-col xl:flex-row justify-center gap-5 mt-6">
+                            <div className="flex flex-wrap justify-center gap-5 mt-6">
                               <input
                                 type="file"
                                 accept=".jpg,.png" // Limit accepted file types
@@ -515,9 +516,7 @@ const FinalSingleVisaPricess = ({
                                 style={{ display: "none" }} // Hide default file input
                                 ref={fileInputRef2}
                               />
-                              <label
-                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
-                              >
+                              <label className="bg-white w-52 h-40 flex flex-col justify-center items-center">
                                 {selectedFile2 ? (
                                   <div className="rounded-full cursor-pointer overflow-hidden w-20 h-16 flex justify-center items-center">
                                     <img
@@ -529,7 +528,7 @@ const FinalSingleVisaPricess = ({
                                 ) : (
                                   <div className="overflow-hidden cursor-pointer w-20 h-16 flex justify-center items-center">
                                     <img
-                                     onClick={handleCustomFileClick2}
+                                      onClick={handleCustomFileClick2}
                                       src="/Mansvg.svg"
                                       alt="Selected Image"
                                     />
@@ -540,19 +539,18 @@ const FinalSingleVisaPricess = ({
                                   <div>
                                     <p>Photograph</p>
                                     <p>
-
-                                    <MdDelete
-                                    onClick={onDeleteImage2}
-                                    className="text-red-500 cursor-pointer ml-36 -mb-4"
-                                    size={30}
-                                    />
+                                      <MdDelete
+                                        onClick={onDeleteImage2}
+                                        className="text-red-500 cursor-pointer ml-36 -mb-4"
+                                        size={30}
+                                      />
                                     </p>
                                   </div>
                                 ) : (
                                   <div>
                                     <p>Photograph</p>
                                     <MdOutlineFileUpload
-                                       onClick={handleCustomFileClick2}
+                                      onClick={handleCustomFileClick2}
                                       className="text-red-500 cursor-pointer ml-36 -mb-4"
                                       size={30}
                                     />
@@ -614,18 +612,22 @@ const FinalSingleVisaPricess = ({
                             >
                               Cancel
                             </button>
-                            <button
-  onClick={handleStartButtonClick}
-  className={`bg-[#e90000]  text-white pl-44 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
-    isStartButtonEnabled() && areAllImagesUploaded() // Add condition for enabling the button
-      ? ""
-      : "opacity-50 cursor-not-allowed"
-  }`}
-  disabled={!isStartButtonEnabled() || !areAllImagesUploaded()} // Disable if either condition is not met
->
-  Details <IoIosArrowForward className="text-2xl ml-[100px] xl:ml-8 text-white" />
-</button>
 
+                            <button
+                              onClick={handleStartButtonClick}
+                              className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${
+                                isStartButtonEnabled() && areAllImagesUploaded() // Add condition for enabling the button
+                                  ? ""
+                                  : "opacity-50 cursor-not-allowed"
+                              }`}
+                              disabled={
+                                !isStartButtonEnabled() ||
+                                !areAllImagesUploaded()
+                              } // Disable if either condition is not met
+                            >
+                              Details{" "}
+                              <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
+                            </button>
                           </div>
                         </div>
                         <DialogFooter></DialogFooter>
