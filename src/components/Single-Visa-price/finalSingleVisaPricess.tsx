@@ -432,10 +432,30 @@ const FinalSingleVisaPricess = ({
                       </DialogTrigger>
                       <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
                         <DialogHeader>
-                          <hr></hr>
+                        <div className="flex justify-center items-center mt-[10px]">
+                        <hr className="w-[380px] lg:w-[800px]" />
+                        </div>
+                          <div className="flex lg:w-[1300px] text-center absolute top-0 gap-11 lg:gap-48 justify-center items-center">
+                          <div className="flex w-fit flex-col justify-center items-center">
+                              <div className="rounded-full border-2 bg-[#f5f5f5] border-gray-600 h-14 w-14"/>
+                              <p className="text-center">DOCUMENTS</p>
+                            </div>
+                            <div className="flex w-fit flex-col justify-center items-center">
+                              <div className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <p className="text-center">DETAILS</p>
+                            </div>
+                            <div className="flex w-fit flex-col justify-center items-center">
+                              <div  className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <p className="text-center">REVIEW</p>
+                            </div>
+                            <div className="flex w-fit flex-col justify-center items-center">
+                              <div className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <p className="text-center">CHECKOUT</p>
+                            </div>
+                          </div>
                         </DialogHeader>
-                        <div>
-                          <div className=" flex justify-center xl:justify-between w-full flex-wrap ">
+                        <div className=" mt-20 lg:mt-10">
+                          <div className=" flex justify-center xl:justify-between flex-col sm:flex-row ">
                             <h1 className="text-[#e90000] text-xl">
                               MAIN APPLICANT
                             </h1>
