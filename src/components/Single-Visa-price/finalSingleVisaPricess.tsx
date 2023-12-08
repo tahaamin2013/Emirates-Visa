@@ -396,12 +396,12 @@ const FinalSingleVisaPricess = ({
                     )}
                   </div>
                   I hereby confirm that no active visa application is currently
-                  under processing by another agent. This could lead to a none{" "}
+                  under processing by another agent. This could lead to a none
                   <br />
                   refundable rejection of my visa application.
                 </p>
                 <p className="text-left text-sm flex gap-3">
-                  <Image src="/Alert.svg" alt="Alert" width={30} height={30} />{" "}
+                  <Image src="/Alert.svg" alt="Alert" width={30} height={30} />
                   You may order up to 9 Visas in <br /> the same application.
                 </p>
               </div>
@@ -441,15 +441,15 @@ const FinalSingleVisaPricess = ({
                               <p className="text-center">DOCUMENTS</p>
                             </div>
                             <div className="flex w-fit flex-col justify-center items-center">
-                              <div className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14"/>
                               <p className="text-center">DETAILS</p>
                             </div>
                             <div className="flex w-fit flex-col justify-center items-center">
-                              <div  className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <div  className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14"/>
                               <p className="text-center">REVIEW</p>
                             </div>
                             <div className="flex w-fit flex-col justify-center items-center">
-                              <div className="rounded-full bg-[#f5f5f5] border-2 border-gray-600 h-14 w-14"/>
+                              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14"/>
                               <p className="text-center">CHECKOUT</p>
                             </div>
                           </div>
@@ -460,7 +460,7 @@ const FinalSingleVisaPricess = ({
                               MAIN APPLICANT
                             </h1>
                             <div>
-                              Order Total:{" "}
+                              Order Total:
                               <span className="text-xl font-bold">180 USD</span>
                             </div>
                           </div>
@@ -471,13 +471,13 @@ const FinalSingleVisaPricess = ({
                             </p>
                             <div className="flex mt-10 text-sm  justify-between xl:flex-row flex-col px-0 xl:px-80">
                               <div>
-                                Accepted Formats:{" "}
+                                Accepted Formats:
                                 <span className="text-[#e90000]">
                                   PDF, JPG or PNG
                                 </span>
                               </div>
                               <div>
-                                Maximum File Size:{" "}
+                                Maximum File Size:
                                 <span className="text-[#e90000]">
                                   4 MB per upload
                                 </span>
@@ -645,7 +645,7 @@ const FinalSingleVisaPricess = ({
                                 !areAllImagesUploaded()
                               } // Disable if either condition is not met
                             >
-                              Details{" "}
+                              Details
                               <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
                             </button>
                           </div>
