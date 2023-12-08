@@ -14,8 +14,8 @@ import { FaCheck } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 import Steps from "../Terms-and-condition/Steps";
+import { MdDelete } from "react-icons/md";
 import { MdOutlineFileUpload } from "react-icons/md";
-
 
 type Country = {
   name: {
@@ -47,22 +47,15 @@ const FinalSingleVisaPricess = ({
   const [showContent, setShowContent] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<string | ArrayBuffer | null>(
-    null
-  );
   const [selectedFile1, setSelectedFile1] = useState<File | null>(null);
   const [selectedFile2, setSelectedFile2] = useState<
     string | ArrayBuffer | null
   >(null);
-  const [selectedFile3, setSelectedFile3] = useState<
-    string | ArrayBuffer | null
-  >(null);
+  const [selectedFile3, setSelectedFile3] = useState<File | null>(null);
 
   const fileInputRef = React.createRef<HTMLInputElement>();
   const fileInputRef2 = React.createRef<HTMLInputElement>();
   const fileInputRef3 = React.createRef<HTMLInputElement>();
-
-
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -89,10 +82,10 @@ const FinalSingleVisaPricess = ({
     const file = event.target.files?.[0]; // Use optional chaining to access files safely
     if (file) {
       const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result;
+      reader.onload = (event) => {
+        const result = event.target?.result;
         if (typeof result === "string" || result instanceof ArrayBuffer) {
-          setSelectedFile3(result as string | ArrayBuffer);
+          setSelectedFile3(file); // Set the File object directly
         }
       };
       reader.readAsDataURL(file);
@@ -115,7 +108,7 @@ const FinalSingleVisaPricess = ({
     if (fileInputRef3.current) {
       fileInputRef3.current.click();
     }
-  };  
+  };
 
   const handleDialogToggle2 = () => {
     setIsChecked1(false);
@@ -174,9 +167,27 @@ const FinalSingleVisaPricess = ({
       setShowContent(true);
     }
   };
+
+  const onDeleteImage = () => {
+    setSelectedFile1(null); // Reset the selected file state to null
+  };
+  
+  const onDeleteImage2 = () => {
+    setSelectedFile2(null); // Reset the selected file state to null
+  };
+
+  const onDeleteImage3 = () => {
+    setSelectedFile3(null); // Reset the selected file state to null
+  };
+
   const reset = () => {
     window.location.reload();
   };
+
+  const areAllImagesUploaded = () => {
+    return selectedFile1 !== null && selectedFile2 !== null && selectedFile3 !== null;
+  };
+  
 
   return (
     <Dialog>
@@ -457,25 +468,42 @@ const FinalSingleVisaPricess = ({
                                 style={{ display: "none" }} // Hide default file input
                                 ref={fileInputRef}
                               />
-                              <label
-                                onClick={handleCustomFileClick}
-                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
-                              >
-                              {selectedFile1 ? (
-                                <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
-                                  <p>{selectedFile1.name}</p>
-                                </div>
-                                  
-                                ):
-                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
-                                    <img
-                                      src='/nationality.svg'
-                                      alt="Selected Image"
-                                    />
+                              <label className="bg-white w-52 h-40 flex flex-col justify-center items-center">
+                                {selectedFile1 ? (
+                                  <div>
+                                    <p>Passport</p>
+                                    <div className="flex text-center border p-1 justify-between gap-[50px] mb-6 mt-4">
+                                      <p className="text-[15px]">
+                                        {selectedFile1.name}
+                                      </p>
+                                      <p onClick={onDeleteImage}>
+                                        <MdDelete
+                                          fill="#e90000"
+                                          className="cursor-pointer"
+                                          size={23}
+                                        />
+                                      </p>
+                                    </div>
                                   </div>
-                                }
-                              <p>Passport</p>
-                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                                ) : (
+                                  <div>
+                                    <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                      <img
+                                        onClick={handleCustomFileClick}
+                                        className="cursor-pointer w-10"
+                                        src="/id-Card.svg"
+                                        alt="Selected Image"
+                                      />
+                                    </div>
+                                    <p>Passport</p>
+                                  </div>
+                                )}
+
+                                <MdOutlineFileUpload
+                                  className="text-red-500 ml-36 -mb-4 cursor-pointer"
+                                  onClick={handleCustomFileClick}
+                                  size={30}
+                                />
                               </label>
 
                               <input
@@ -486,27 +514,48 @@ const FinalSingleVisaPricess = ({
                                 ref={fileInputRef2}
                               />
                               <label
-                                onClick={handleCustomFileClick2}
                                 className="bg-white w-52 h-40 flex flex-col justify-center items-center"
                               >
                                 {selectedFile2 ? (
-                                  <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
+                                  <div className="rounded-full cursor-pointer overflow-hidden w-20 h-16 flex justify-center items-center">
                                     <img
                                       src={selectedFile2 as string}
                                       alt="Selected Image"
                                       className="w-full h-full object-cover"
                                     />
                                   </div>
-                                ):
-                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                ) : (
+                                  <div className="overflow-hidden cursor-pointer w-20 h-16 flex justify-center items-center">
                                     <img
-                                      src='/Mansvg.svg'
+                                     onClick={handleCustomFileClick2}
+                                      src="/Mansvg.svg"
                                       alt="Selected Image"
                                     />
                                   </div>
-                                }
-                              <p>Photograph</p>
-                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                                )}
+
+                                {selectedFile2 ? (
+                                  <div>
+                                    <p>Photograph</p>
+                                    <p>
+
+                                    <MdDelete
+                                    onClick={onDeleteImage2}
+                                    className="text-red-500 cursor-pointer ml-36 -mb-4"
+                                    size={30}
+                                    />
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div>
+                                    <p>Photograph</p>
+                                    <MdOutlineFileUpload
+                                       onClick={handleCustomFileClick2}
+                                      className="text-red-500 cursor-pointer ml-36 -mb-4"
+                                      size={30}
+                                    />
+                                  </div>
+                                )}
                               </label>
 
                               <input
@@ -516,28 +565,42 @@ const FinalSingleVisaPricess = ({
                                 style={{ display: "none" }} // Hide default file input
                                 ref={fileInputRef3}
                               />
-                              <label
-                                onClick={handleCustomFileClick3}
-                                className="bg-white w-52 h-40 flex flex-col justify-center items-center"
-                              >
+                              <label className="bg-white w-52 h-40 flex flex-col justify-center items-center">
                                 {selectedFile3 ? (
-                                  <div className="rounded-full overflow-hidden w-20 h-16 flex justify-center items-center">
-                                    <img
-                                      src={selectedFile3 as string}
-                                      alt="Selected Image"
-                                      className="w-full h-full object-cover"
-                                    />
+                                  <div>
+                                    <p>National ID</p>
+                                    <div className="flex text-center border p-1 justify-between gap-[50px] mb-6 mt-4">
+                                      <p className="text-[15px]">
+                                        {selectedFile3.name}
+                                      </p>
+                                      <p onClick={onDeleteImage3}>
+                                        <MdDelete
+                                          fill="#e90000"
+                                          className="cursor-pointer"
+                                          size={23}
+                                        />
+                                      </p>
+                                    </div>
                                   </div>
-                                ):
-                                <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
-                                    <img
-                                      src='/nationality.svg'
-                                      alt="Selected Image"
-                                    />
+                                ) : (
+                                  <div>
+                                    <div className="overflow-hidden w-20 h-16 flex justify-center items-center">
+                                      <img
+                                        onClick={handleCustomFileClick3}
+                                        className="cursor-pointer"
+                                        src="/nationality.svg"
+                                        alt="Selected Image"
+                                      />
+                                    </div>
+                                    <p>National ID</p>
                                   </div>
-                                }
-                              <p>National ID</p>
-                                <MdOutlineFileUpload className="text-red-500 ml-36 -mb-4" size={30} />
+                                )}
+
+                                <MdOutlineFileUpload
+                                  className="text-red-500 ml-36 -mb-4 cursor-pointer"
+                                  onClick={handleCustomFileClick3}
+                                  size={30}
+                                />
                               </label>
                             </div>
                           </div>
@@ -550,12 +613,17 @@ const FinalSingleVisaPricess = ({
                               Cancel
                             </button>
                             <button
-                              onClick={handleStartButtonClick}
-                              className="bg-[#e90000]  text-white pl-44 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center"
-                            >
-                              Details{" "}
-                              <IoIosArrowForward className="text-2xl ml-[100px] xl:ml-8 text-white" />
-                            </button>
+  onClick={handleStartButtonClick}
+  className={`bg-[#e90000]  text-white pl-44 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+    isStartButtonEnabled() && areAllImagesUploaded() // Add condition for enabling the button
+      ? ""
+      : "opacity-50 cursor-not-allowed"
+  }`}
+  disabled={!isStartButtonEnabled() || !areAllImagesUploaded()} // Disable if either condition is not met
+>
+  Details <IoIosArrowForward className="text-2xl ml-[100px] xl:ml-8 text-white" />
+</button>
+
                           </div>
                         </div>
                         <DialogFooter></DialogFooter>
