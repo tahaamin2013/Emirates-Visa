@@ -429,8 +429,10 @@ const FinalSingleVisaPricess = ({
                           <IoIosArrowForward className="text-2xl ml-[90px] xl:ml-8 text-white" />
                         </button>
                       </DialogTrigger>
-                      <DialogContent className="h-full text-center  max-w-screen-2xl bg-[#f5f5f5]">
-                        <DialogHeader>header</DialogHeader>
+                      <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
+                        <DialogHeader>
+                          <hr></hr>
+                        </DialogHeader>
                         <div>
                           <div className=" flex justify-between flex-col xl:flex-row ">
                             <h1 className="text-[#e90000] text-xl">
