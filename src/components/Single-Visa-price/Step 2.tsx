@@ -22,7 +22,7 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
           <div className="flex justify-center items-center mt-[10px]">
             <hr className="w-[300px] lg:w-[970px]" />
           </div>
-          <div className="flex lg:w-[1300px] text-center absolute top-0 gap-5 lg:-ml-0 -ml-2 lg:gap-64 justify-center items-center">
+          <div className="flex lg:w-[1300px] text-center absolute top-0 gap-5 lg:-ml-0 -ml-[8px] lg:gap-64 justify-center items-center">
             <div className="flex w-fit flex-col justify-center items-center gap-2">
               <div className="rounded-full border-2 bg-[#f5f5f5] border-black/60 h-14 w-14" />
               <p className="text-center text-black/50 text-sm font-bold">
