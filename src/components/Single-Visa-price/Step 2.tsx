@@ -7,6 +7,7 @@ import {
 import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
+import { Button } from "../ui/button";
 const Step2 = ({
   handleStartButtonClick,
   isStartButtonEnabledf,
@@ -102,7 +103,7 @@ const Step2 = ({
         </button>
       </DialogTrigger>
       <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
-      <DialogHeader>
+        <DialogHeader>
           <div className="flex justify-center items-center mt-[10px]">
             <hr className="w-[300px] lg:w-[970px]" />
           </div>
@@ -301,55 +302,55 @@ const Step2 = ({
             >
               Cancel
             </button>
+            
 
-          <Dialog>
-            <DialogTrigger>
-            <button
-  onClick={handleStartButtonClick}
-  className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${
-    imagesUploaded ? "" : "opacity-50 cursor-not-allowed"
-  }`}
-  disabled={!imagesUploaded}
->
-  Details
-  <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
-</button>
-            </DialogTrigger>
-          <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
-            <DialogHeader>
-          <div className="flex justify-center items-center mt-[10px]">
-            <hr className="w-[300px] lg:w-[970px]" />
-          </div>
-          <div className="flex lg:w-[1300px] text-center absolute top-0 gap-5 lg:-ml-0 -ml-[8px] lg:gap-64 justify-center items-center">
-            <div className="flex w-fit flex-col justify-center items-center gap-2">
-              <div className="rounded-full border-2 bg-[#f5f5f5] border-[#339933] h-14 w-14" />
-              <p className="text-center text-black/50 text-sm font-bold">
-                DOCUMENTS
-              </p>
-            </div>
-            <div className="flex w-fit flex-col justify-center items-center gap-2">
-              <div className="rounded-full bg-[#f5f5f5] border-black/60 border-2 h-14 w-14" />
-              <p className="text-center text-black/50 text-sm font-bold">
-                DETAILS
-              </p>
-            </div>
-            <div className="flex w-fit flex-col justify-center items-center gap-2">
-              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
-              <p className="text-center text-black/50 text-sm font-bold">
-                REVIEW
-              </p>
-            </div>
-            <div className="flex w-fit flex-col justify-center items-center gap-2">
-              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
-              <p className="text-center text-black/50 text-sm font-bold">
-                CHECKOUT
-              </p>
-            </div>
-          </div>
-        </DialogHeader>
-  
-          </DialogContent>
-          </Dialog>
+            <Dialog>
+              <DialogTrigger>
+              <button
+                  className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${
+                    selectedFile1 && selectedFile2 && selectedFile3 ? "" : "opacity-50 cursor-not-allowed"
+                  }`}
+                  disabled={!selectedFile1 && !selectedFile2 && !selectedFile3}
+                >
+                  Details
+                  <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
+                <DialogHeader>
+                  <div className="flex justify-center items-center mt-[10px]">
+                    <hr className="w-[300px] lg:w-[970px]" />
+                  </div>
+                  <div className="flex lg:w-[1300px] text-center absolute top-0 gap-5 lg:-ml-0 -ml-[8px] lg:gap-64 justify-center items-center">
+                    <div className="flex w-fit flex-col justify-center items-center gap-2">
+                      <div className="rounded-full border-2 bg-[#f5f5f5] border-[#339933] h-14 w-14" />
+                      <p className="text-center text-black/50 text-sm font-bold">
+                        DOCUMENTS
+                      </p>
+                    </div>
+                    <div className="flex w-fit flex-col justify-center items-center gap-2">
+                      <div className="rounded-full bg-[#f5f5f5] border-black/60 border-2 h-14 w-14" />
+                      <p className="text-center text-black/50 text-sm font-bold">
+                        DETAILS
+                      </p>
+                    </div>
+                    <div className="flex w-fit flex-col justify-center items-center gap-2">
+                      <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
+                      <p className="text-center text-black/50 text-sm font-bold">
+                        REVIEW
+                      </p>
+                    </div>
+                    <div className="flex w-fit flex-col justify-center items-center gap-2">
+                      <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
+                      <p className="text-center text-black/50 text-sm font-bold">
+                        CHECKOUT
+                      </p>
+                    </div>
+                  </div>
+                </DialogHeader>
+                
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </DialogContent>

@@ -1,6 +1,6 @@
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,} from "@/components/ui/dialog"; import Image from "next/image"; import React, { useState } from "react"; import { IoIosArrowForward } from "react-icons/io"; import Steps from "../Terms-and-condition/Steps"; import Step2 from "./Step 2";
-const Step1 = ({ handleStartButtonClick, isStartButtonEnabledf, isStartButtonEnabledg, }: { handleStartButtonClick: any; isStartButtonEnabledf: any; isStartButtonEnabledg: any}) => {
-    const [isChecked1, setIsChecked1] = useState(false);const [isChecked2, setIsChecked2] = useState(false); const handleDialogToggle2 = () => { setIsChecked1(false); setIsChecked2(false); window.location.reload();};const isStartButtonEnabled2 = () => {return isChecked1 && isChecked2;}; const handleDivClick1 = () => {setIsChecked1(!isChecked1);}; const handleDivClick2 = () => {setIsChecked2(!isChecked2);};
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"; import Image from "next/image"; import React, { useState } from "react"; import { IoIosArrowForward } from "react-icons/io"; import Steps from "../Terms-and-condition/Steps"; import Step2 from "./Step 2";
+const Step1 = ({ handleStartButtonClick, isStartButtonEnabledf, isStartButtonEnabledg, }: { handleStartButtonClick: any; isStartButtonEnabledf: any; isStartButtonEnabledg: any }) => {
+    const [isChecked1, setIsChecked1] = useState(false); const [isChecked2, setIsChecked2] = useState(false); const handleDialogToggle2 = () => { setIsChecked1(false); setIsChecked2(false); window.location.reload(); }; const isStartButtonEnabled2 = () => { return isChecked1 && isChecked2; }; const handleDivClick1 = () => { setIsChecked1(!isChecked1); }; const handleDivClick2 = () => { setIsChecked2(!isChecked2); };
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -22,10 +22,10 @@ const Step1 = ({ handleStartButtonClick, isStartButtonEnabledf, isStartButtonEna
                     <DialogDescription className="text-center text-lg"> What(s) required to make this application? </DialogDescription>
                 </DialogHeader>
                 <div className=" flex flex-col lg:flex-row gap-5 mb-9 mt-9">
-                    <Steps image="/id-Card.svg" width={40} height={40} title="Valid Passport" description="Clear passport scan or picture with minimum of 6 months validity." className=""/>
-                    <Steps image="/Mansvg.svg" width={56} height={56} title="Picture / Headshot" description="Clear passport style color photo or a selfie with white background." className=""/>
-                    <Steps image="/linessvg.svg" width={60} height={60} title="Personal Details" description="Name and contact details so we can facilitate your application." className=" mt-4"/>
-                    <Steps image="/nationality.svg" width={60} height={60} title="Additional Documents"  description="In some cases additional documents may be required." className=" my-2"/>
+                    <Steps image="/id-Card.svg" width={40} height={40} title="Valid Passport" description="Clear passport scan or picture with minimum of 6 months validity." className="" />
+                    <Steps image="/Mansvg.svg" width={56} height={56} title="Picture / Headshot" description="Clear passport style color photo or a selfie with white background." className="" />
+                    <Steps image="/linessvg.svg" width={60} height={60} title="Personal Details" description="Name and contact details so we can facilitate your application." className=" mt-4" />
+                    <Steps image="/nationality.svg" width={60} height={60} title="Additional Documents" description="In some cases additional documents may be required." className=" my-2" />
                 </div>
                 <p className="text-left text-sm mb-4">Please confirm that you have read and agreed to the following:</p>
                 <div className="flex flex-col text-black/80 gap-4">
@@ -73,6 +73,7 @@ const Step1 = ({ handleStartButtonClick, isStartButtonEnabledf, isStartButtonEna
                             >
                                 Cancel
                             </button>
+
                             <Step2 handleStartButtonClick={handleStartButtonClick} isStartButtonEnabledf={!isStartButtonEnabled2()} isStartButtonEnabledg={isStartButtonEnabled2()} />
                         </div>
                     </div>

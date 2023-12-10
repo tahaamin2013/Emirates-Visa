@@ -1,6 +1,68 @@
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTrigger,} from "@/components/ui/dialog"; import React, { ChangeEvent, useEffect, useState } from "react";import { FaCheck } from "react-icons/fa6";import Step1 from "./Step 1";
-type Country = {name: {common: string;};flags: {png: string;};};
-const FinalSingleVisaPricess = ({ Days, Single, Price, description, BestPrice, }: { Days: string; Single: string; Price: string; description: string; BestPrice: boolean;}) => { const [isDialogOpen, setIsDialogOpen] = useState(false);const [countries, setCountries] = useState<Country[]>([]);const [selectedCountry1, setSelectedCountry1] = useState<string>("");const [selectedCountry2, setSelectedCountry2] = useState<string>(""); const [showPreviousContent, setShowPreviousContent] = useState(true); const [showContent, setShowContent] = useState(false);const close = () => {window.location.reload();};const handleDialogToggle = () => {setIsDialogOpen(!isDialogOpen);};useEffect(() => { fetchCountries();}, []); const fetchCountries = async () => {try { const response = await fetch("https://restcountries.com/v3.1/all"); const data = await response.json();setCountries(data);} catch (error) {console.error("Error fetching countries:", error);}}; const handleCountry1Change = (e: ChangeEvent<HTMLSelectElement>) => { setSelectedCountry1(e.target.value);}; const handleCountry2Change = (e: ChangeEvent<HTMLSelectElement>) => {setSelectedCountry2(e.target.value);}; const isStartButtonEnabled = () => {return selectedCountry1 !== "" && selectedCountry2 !== "";}; const handleStartButtonClick = () => { if (isStartButtonEnabled()) { setShowPreviousContent(false); setShowContent(true);}};
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { FaCheck } from "react-icons/fa6";
+import Step1 from "./Step 1";
+type Country = { name: { common: string }; flags: { png: string } };
+const FinalSingleVisaPricess = ({
+  Days,
+  Single,
+  Price,
+  description,
+  BestPrice,
+}: {
+  Days: string;
+  Single: string;
+  Price: string;
+  description: string;
+  BestPrice: boolean;
+}) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [selectedCountry1, setSelectedCountry1] = useState<string>("");
+  const [selectedCountry2, setSelectedCountry2] = useState<string>("");
+  const [showPreviousContent, setShowPreviousContent] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+  const close = () => {
+    window.location.reload();
+  };
+  const handleDialogToggle = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      setCountries(data);
+    } catch (error) {
+      console.error("Error fetching countries:", error);
+    }
+  };
+  const handleCountry1Change = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry1(e.target.value);
+  };
+  const handleCountry2Change = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry2(e.target.value);
+  };
+  const isStartButtonEnabled = () => {
+    return selectedCountry1 !== "" && selectedCountry2 !== "";
+  };
+  const handleStartButtonClick = () => {
+    if (isStartButtonEnabled()) {
+      setShowPreviousContent(false);
+      setShowContent(true);
+    }
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -32,13 +94,14 @@ const FinalSingleVisaPricess = ({ Days, Single, Price, description, BestPrice, }
         <form className="flex flex-col md:flex-row gap-4">
           <div className="w-full bg-white p-5 shadow-md flex items-center">
             <img
-              className={`flag w-11 h-11 ${selectedCountry1 ? "rounded-full" : "rounded-none"
-                } mr-2`}
+              className={`flag w-11 h-11 ${
+                selectedCountry1 ? "rounded-full" : "rounded-none"
+              } mr-2`}
               src={
                 selectedCountry1 === ""
                   ? "nationality.svg"
                   : countries.find((c) => c.name.common === selectedCountry1)
-                    ?.flags.png || "nationality.svg"
+                      ?.flags.png || "nationality.svg"
               }
               alt="Flag"
             />
@@ -63,13 +126,14 @@ const FinalSingleVisaPricess = ({ Days, Single, Price, description, BestPrice, }
           {/* Country 2 Selection */}
           <div className="selection w-full bg-white p-5 shadow-md flex items-center">
             <img
-              className={`flag w-11 h-11 ${selectedCountry2 ? "rounded-full" : "rounded-none"
-                } mr-2`}
+              className={`flag w-11 h-11 ${
+                selectedCountry2 ? "rounded-full" : "rounded-none"
+              } mr-2`}
               src={
                 selectedCountry2 === ""
                   ? "country.svg"
                   : countries.find((c) => c.name.common === selectedCountry2)
-                    ?.flags.png || "nationality.svg"
+                      ?.flags.png || "nationality.svg"
               }
               alt="Flag"
             />
@@ -93,7 +157,7 @@ const FinalSingleVisaPricess = ({ Days, Single, Price, description, BestPrice, }
         </form>
         <DialogFooter className="sm:justify-end mt-20 flex gap-5">
           <DialogClose asChild>
-          <button
+            <button
               className="border bg-transparent rounded-none border-black/50 px-12 text-md font-light py-2 transition-all duration-500 hover:bg-[#E6E6E6] uppercase"
               onClick={close}
               type="button"
@@ -101,7 +165,11 @@ const FinalSingleVisaPricess = ({ Days, Single, Price, description, BestPrice, }
               Cancel
             </button>
           </DialogClose>
-          <Step1 handleStartButtonClick={handleStartButtonClick} isStartButtonEnabledf={!isStartButtonEnabled()} isStartButtonEnabledg={isStartButtonEnabled()} />
+          <Step1
+            handleStartButtonClick={handleStartButtonClick}
+            isStartButtonEnabledf={!isStartButtonEnabled()}
+            isStartButtonEnabledg={isStartButtonEnabled()}
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>
