@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
 import { Button } from "../ui/button";
+import { DialogDescription } from "@radix-ui/react-dialog";
 const Step2 = ({
   handleStartButtonClick,
   isStartButtonEnabledf,
@@ -347,12 +348,37 @@ const Step2 = ({
                       </p>
                     </div>
                   </div>
+                  
                 </DialogHeader>
-                
+                <DialogDescription>
+                <div className=" mt-16 lg:mt-10">
+          <div className=" flex justify-center xl:justify-between flex-col sm:flex-row ">
+            <h1 className="text-[#e90000] text-xl">MAIN APPLICANT</h1>
+            <div>
+              Order Total:
+              <span className="text-xl font-bold">180 USD</span>
+            </div>
+            </div>
+            <h1 className="mt-3 text-xl mb-5">Please Provide The Following Details</h1>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/phonesvg.svg" className="w-5" alt="Title image" /><input placeholder="000" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/smallbagsvg.svg" className="w-5" alt="Title image" /><input placeholder="Email Address" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/man.svg" className="w-5" alt="Title image" /><input placeholder="First Name or any middle names" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/man.svg" className="w-5" alt="Title image" /><input placeholder="Last Name" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/flagsvg.svg" className="w-5" alt="Title image" /><input placeholder="Afghanistan" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/country.svg" className="w-5" alt="Title image" /><input placeholder="Central African Republic" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/id-Card.svg" className="w-5" alt="Title image" /><input placeholder="Passport No" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/handbag.svg" className="w-5" alt="Title image" /><input placeholder="Profession" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/Calendersvg.svg" className="w-5" alt="Title image" /><input placeholder="Travel Date" className="w-full ml-3 outline-none" type="text" /></div>
+              <div className="bg-white flex py-5 px-5 w-full shadow-md"><img src="/gab.svg" className="w-5" alt="Title image" /><input placeholder="Purpose of Travel" className="w-full ml-3 outline-none" type="text" /></div>         
+            </div>
+            </div>
+                </DialogDescription>
               </DialogContent>
             </Dialog>
           </div>
-        </div>
+          </div>
+          
       </DialogContent>
     </Dialog>
   );
