@@ -1,16 +1,100 @@
-import { Dialog, DialogContent, DialogHeader,DialogTrigger} from "@/components/ui/dialog";
-import React, { useState } from "react";import { IoIosArrowForward } from "react-icons/io";import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
-const Step2 = ({ handleStartButtonClick, isStartButtonEnabledf, isStartButtonEnabledg,}: { handleStartButtonClick: any; isStartButtonEnabledf: any; isStartButtonEnabledg: any}) => { const [selectedCountry1] = useState<string>("");const [selectedCountry2] = useState<string>("");const [selectedFile1, setSelectedFile1] = useState<File | null>(null);const [selectedFile2, setSelectedFile2] = useState<string | ArrayBuffer | null >(null); const [selectedFile3, setSelectedFile3] = useState<File | null>(null);const fileInputRef = React.createRef<HTMLInputElement>(); const fileInputRef2 = React.createRef<HTMLInputElement>();const fileInputRef3 = React.createRef<HTMLInputElement>();const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0];if (file) {setSelectedFile1(file);}}; const handleFileChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {const file = event.target.files?.[0]; if (file) { const reader = new FileReader(); reader.onload = () => { const result = reader.result; if (typeof result === "string" || result instanceof ArrayBuffer) {   setSelectedFile2(result as string | ArrayBuffer); }};reader.readAsDataURL(file);}};const handleFileChange3 = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0];if (file) { const reader = new FileReader(); reader.onload = (event) => { const result = event.target?.result; if (typeof result === "string" || result instanceof ArrayBuffer) { setSelectedFile3(file); } };reader.readAsDataURL(file);}};const handleCustomFileClick = () => {if (fileInputRef.current) {fileInputRef.current.click();}}; const handleCustomFileClick2 = () => {if (fileInputRef2.current) {fileInputRef2.current.click();}}; const areAllImagesUploaded = () => { return (selectedFile1 !== null && selectedFile2 !== null && selectedFile3 !== null);};const handleCustomFileClick3 = () => {if (fileInputRef3.current) {fileInputRef3.current.click();}};
-const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = () => { setSelectedFile2(null); };const onDeleteImage3 = () => { setSelectedFile3(null); }; const isStartButtonEnabled = () => {return selectedCountry1 !== "" && selectedCountry2 !== "";};const close = () => {window.location.reload();};
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import React, { useState } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
+const Step2 = ({
+  handleStartButtonClick,
+  isStartButtonEnabledf,
+  isStartButtonEnabledg,
+}: {
+  handleStartButtonClick: any;
+  isStartButtonEnabledf: any;
+  isStartButtonEnabledg: any;
+}) => {
+  const [imagesUploaded, setImagesUploaded] = useState(false);
+  const [selectedFile1, setSelectedFile1] = useState<File | null>(null);
+  const [selectedFile2, setSelectedFile2] = useState<
+    string | ArrayBuffer | null
+  >(null);
+  const [selectedFile3, setSelectedFile3] = useState<File | null>(null);
+  const fileInputRef = React.createRef<HTMLInputElement>();
+  const fileInputRef2 = React.createRef<HTMLInputElement>();
+  const fileInputRef3 = React.createRef<HTMLInputElement>();
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedFile1(file);
+      setImagesUploaded(true);
+    }
+  };
+  const handleFileChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        if (typeof result === "string" || result instanceof ArrayBuffer) {
+          setSelectedFile2(result as string | ArrayBuffer);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const handleFileChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const result = event.target?.result;
+        if (typeof result === "string" || result instanceof ArrayBuffer) {
+          setSelectedFile3(file);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const handleCustomFileClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+  const handleCustomFileClick2 = () => {
+    if (fileInputRef2.current) {
+      fileInputRef2.current.click();
+    }
+  };
+
+  const handleCustomFileClick3 = () => {
+    if (fileInputRef3.current) {
+      fileInputRef3.current.click();
+    }
+  };
+  const onDeleteImage = () => {
+    setSelectedFile1(null);
+  };
+  const onDeleteImage2 = () => {
+    setSelectedFile2(null);
+  };
+  const onDeleteImage3 = () => {
+    setSelectedFile3(null);
+  };
+
+  const close = () => {
+    window.location.reload();
+  };
   return (
     <Dialog>
       <DialogTrigger>
         <button
           onClick={handleStartButtonClick}
-          className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${isStartButtonEnabledg
-              ? ""
-              : "opacity-50 cursor-not-allowed"
-            }`}
+          className={`bg-[#e90000]  text-white pl-32 pr-[17px] xl:pl-12 xl:pr-3 text-md font-light pb-[9px] pt-[9px] uppercase flex text-center ${
+            isStartButtonEnabledg ? "" : "opacity-50 cursor-not-allowed"
+          }`}
           disabled={isStartButtonEnabledf}
         >
           Start
@@ -18,7 +102,7 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
         </button>
       </DialogTrigger>
       <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
-        <DialogHeader>
+      <DialogHeader>
           <div className="flex justify-center items-center mt-[10px]">
             <hr className="w-[300px] lg:w-[970px]" />
           </div>
@@ -65,15 +149,11 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
             <div className="flex mt-10 text-sm  justify-between xl:flex-row flex-col px-0 xl:px-80">
               <div>
                 Accepted Formats:
-                <span className="text-[#e90000]">
-                  PDF, JPG or PNG
-                </span>
+                <span className="text-[#e90000]">PDF, JPG or PNG</span>
               </div>
               <div>
                 Maximum File Size:
-                <span className="text-[#e90000]">
-                  4 MB per upload
-                </span>
+                <span className="text-[#e90000]">4 MB per upload</span>
               </div>
             </div>
             <div className="flex flex-wrap justify-center gap-5 mt-6">
@@ -89,9 +169,7 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
                   <div>
                     <p>Passport</p>
                     <div className="flex text-center border p-1 justify-between gap-[50px] mb-6 mt-4">
-                      <p className="text-[15px]">
-                        {selectedFile1.name}
-                      </p>
+                      <p className="text-[15px]">{selectedFile1.name}</p>
                       <p onClick={onDeleteImage}>
                         <MdDelete
                           fill="#e90000"
@@ -183,9 +261,7 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
                   <div>
                     <p>National ID</p>
                     <div className="flex text-center border p-1 justify-between gap-[50px] mb-6 mt-4">
-                      <p className="text-[15px]">
-                        {selectedFile3.name}
-                      </p>
+                      <p className="text-[15px]">{selectedFile3.name}</p>
                       <p onClick={onDeleteImage3}>
                         <MdDelete
                           fill="#e90000"
@@ -226,19 +302,54 @@ const onDeleteImage = () => { setSelectedFile1(null); };const onDeleteImage2 = (
               Cancel
             </button>
 
+          <Dialog>
+            <DialogTrigger>
             <button
-              onClick={handleStartButtonClick}
-              className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${isStartButtonEnabled() && areAllImagesUploaded() // Add condition for enabling the button
-                  ? ""
-                  : "opacity-50 cursor-not-allowed"
-                }`}
-              disabled={
-                !isStartButtonEnabled() || !areAllImagesUploaded()
-              }
-            >
-              Details
-              <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
-            </button>
+  onClick={handleStartButtonClick}
+  className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${
+    imagesUploaded ? "" : "opacity-50 cursor-not-allowed"
+  }`}
+  disabled={!imagesUploaded}
+>
+  Details
+  <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
+</button>
+            </DialogTrigger>
+          <DialogContent className="h-full text-center overflow-y-auto max-w-screen-2xl bg-[#f5f5f5]">
+            <DialogHeader>
+          <div className="flex justify-center items-center mt-[10px]">
+            <hr className="w-[300px] lg:w-[970px]" />
+          </div>
+          <div className="flex lg:w-[1300px] text-center absolute top-0 gap-5 lg:-ml-0 -ml-[8px] lg:gap-64 justify-center items-center">
+            <div className="flex w-fit flex-col justify-center items-center gap-2">
+              <div className="rounded-full border-2 bg-[#f5f5f5] border-[#339933] h-14 w-14" />
+              <p className="text-center text-black/50 text-sm font-bold">
+                DOCUMENTS
+              </p>
+            </div>
+            <div className="flex w-fit flex-col justify-center items-center gap-2">
+              <div className="rounded-full bg-[#f5f5f5] border-black/60 border-2 h-14 w-14" />
+              <p className="text-center text-black/50 text-sm font-bold">
+                DETAILS
+              </p>
+            </div>
+            <div className="flex w-fit flex-col justify-center items-center gap-2">
+              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
+              <p className="text-center text-black/50 text-sm font-bold">
+                REVIEW
+              </p>
+            </div>
+            <div className="flex w-fit flex-col justify-center items-center gap-2">
+              <div className="rounded-full bg-[#f5f5f5] border-2 h-14 w-14" />
+              <p className="text-center text-black/50 text-sm font-bold">
+                CHECKOUT
+              </p>
+            </div>
+          </div>
+        </DialogHeader>
+  
+          </DialogContent>
+          </Dialog>
           </div>
         </div>
       </DialogContent>
