@@ -4,7 +4,7 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
 import { Button } from "../ui/button";
@@ -29,6 +29,8 @@ const Step2 = ({
   const [isChecked1, setIsChecked1] = useState(false); 
   const fileInputRef2 = React.createRef<HTMLInputElement>();
   const fileInputRef3 = React.createRef<HTMLInputElement>();
+  const [inputFilled, setInputFilled] = useState(false);
+  
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -91,6 +93,26 @@ const Step2 = ({
   const close = () => {
     window.location.reload();
   };
+
+
+
+  useEffect(() => {
+    checkInputs(); // Check inputs whenever they change
+  }, [selectedFile1, selectedFile2, selectedFile3]);
+
+ const checkInputs = () => {
+    // Check if all inputs are filled here
+    console.log("Checking inputs...");
+    console.log(selectedFile1, selectedFile2, selectedFile3);
+    if (selectedFile1 && selectedFile2 && selectedFile3) {
+      console.log("All inputs filled!");
+      setInputFilled(true);
+    } else {
+      console.log("Some inputs are empty.");
+      setInputFilled(false);
+    }
+  }
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -373,7 +395,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="000"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -385,7 +407,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Email Address"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -393,7 +415,7 @@ const Step2 = ({
                         <img src="/man.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="First Name or any middle names"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -401,7 +423,7 @@ const Step2 = ({
                         <img src="/man.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="Last Name"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -413,7 +435,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Afghanistan"
-                          className="w-full ml-3 text-sm outline-none bg-transparent cursor-not-allowed"
+                          className="w-full ml-3 text-sm outline-none bg-transparent cursor-not-allowed placeholder-black"
                           type="text"
                           disabled
                         />
@@ -426,7 +448,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Central African Republic"
-                          className="w-full ml-3 bg-transparent text-sm outline-none cursor-not-allowed"
+                          className="w-full ml-3 bg-transparent text-sm outline-none cursor-not-allowed placeholder-black"
                           type="text"
                           disabled
                         />
@@ -439,7 +461,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Passport No"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -451,7 +473,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Profession"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -463,7 +485,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Travel Date"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -471,7 +493,7 @@ const Step2 = ({
                         <img src="/gab.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="Purpose of Travel"
-                          className="w-full ml-3 outline-none text-sm"
+                          className="w-full ml-3 outline-none text-sm placeholder-black/70"
                           type="text"
                         />
                       </div>
@@ -480,7 +502,7 @@ const Step2 = ({
                   </div>
                   <p className="text-left mt-4 text-sm flex gap-3">
                         <div
-                            className={`w-14 xl:w-6 h-6 border-2 border-red-500 flex items-center justify-center rounded cursor-pointer`}
+                            className={`w-6 h-6 border-2 border-red-500 flex items-center justify-center rounded cursor-pointer`}
                         onClick={handleDivClick1}
                         >
                             {isChecked1 ? (
@@ -491,7 +513,19 @@ const Step2 = ({
                         </div>
                         <span className="mt-[1px]">i have Vsited the UAE before</span>
                     </p>
+                    <div className="flex justify-center items-center w-full">
+        <button
+          className={`bg-[#e90000] hover:bg-[#e90000] text-white text-md font-light w-full justify-center lg:w-fit lg:h-fit px-6 py-3 uppercase flex text-center ${
+            inputFilled ? "" : "opacity-50 cursor-not-allowed"
+          }`}
+          disabled={!inputFilled}
+        >
+          Details
+          <IoIosArrowForward className="text-2xl ml-[60px] xl:ml-8 text-white" />
+        </button>
+                        </div>
                 </DialogDescription>
+                
               </DialogContent>
             </Dialog>
           </div>
