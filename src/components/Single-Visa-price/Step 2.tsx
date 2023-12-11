@@ -20,11 +20,13 @@ const Step2 = ({
 }) => {
   const [imagesUploaded, setImagesUploaded] = useState(false);
   const [selectedFile1, setSelectedFile1] = useState<File | null>(null);
+  const handleDivClick1 = () => { setIsChecked1(!isChecked1); };
   const [selectedFile2, setSelectedFile2] = useState<
     string | ArrayBuffer | null
   >(null);
   const [selectedFile3, setSelectedFile3] = useState<File | null>(null);
   const fileInputRef = React.createRef<HTMLInputElement>();
+  const [isChecked1, setIsChecked1] = useState(false); 
   const fileInputRef2 = React.createRef<HTMLInputElement>();
   const fileInputRef3 = React.createRef<HTMLInputElement>();
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -362,7 +364,7 @@ const Step2 = ({
                     <h1 className="mt-3 text-xl mb-5">
                       Please Provide The Following Details
                     </h1>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 text-black">
                       <div className="bg-white flex py-5 px-5 w-full shadow-md">
                         <img
                           src="/phonesvg.svg"
@@ -371,7 +373,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="000"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -383,7 +385,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Email Address"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -391,7 +393,7 @@ const Step2 = ({
                         <img src="/man.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="First Name or any middle names"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -399,7 +401,7 @@ const Step2 = ({
                         <img src="/man.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="Last Name"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -411,7 +413,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Afghanistan"
-                          className="w-full ml-3 outline-none bg-transparent cursor-not-allowed"
+                          className="w-full ml-3 text-sm outline-none bg-transparent cursor-not-allowed"
                           type="text"
                           disabled
                         />
@@ -424,7 +426,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Central African Republic"
-                          className="w-full ml-3 bg-transparent outline-none cursor-not-allowed"
+                          className="w-full ml-3 bg-transparent text-sm outline-none cursor-not-allowed"
                           type="text"
                           disabled
                         />
@@ -437,7 +439,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Passport No"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -449,11 +451,11 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Profession"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
-                      <div className="bg-white flex py-5 px-5 w-full shadow-md">
+                      <div className="bg-white flex py-4 px-4 w-full shadow-md">
                         <img
                           src="/Calendersvg.svg"
                           className="w-5"
@@ -461,7 +463,7 @@ const Step2 = ({
                         />
                         <input
                           placeholder="Travel Date"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
@@ -469,12 +471,26 @@ const Step2 = ({
                         <img src="/gab.svg" className="w-5" alt="Title image" />
                         <input
                           placeholder="Purpose of Travel"
-                          className="w-full ml-3 outline-none"
+                          className="w-full ml-3 outline-none text-sm"
                           type="text"
                         />
                       </div>
                     </div>
+                    
                   </div>
+                  <p className="text-left mt-4 text-sm flex gap-3">
+                        <div
+                            className={`w-14 xl:w-6 h-6 border-2 border-red-500 flex items-center justify-center rounded cursor-pointer`}
+                        onClick={handleDivClick1}
+                        >
+                            {isChecked1 ? (
+                                <span className="text-red-500 font-bold mt-0">✔</span>
+                            ) : (
+                                <span></span>
+                            )}
+                        </div>
+                        <span className="mt-[1px]">i have Vsited the UAE before</span>
+                    </p>
                 </DialogDescription>
               </DialogContent>
             </Dialog>
